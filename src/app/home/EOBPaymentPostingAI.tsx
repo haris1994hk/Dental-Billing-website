@@ -1,37 +1,86 @@
 export default function EOBPaymentPostingAI() {
+  const sections = [
+    {
+      title: "Start with clean, complete insurance data",
+      bullets: [
+        "EOB and EOP ingestion",
+        "Claim and payer matching",
+        "Bulk check identification",
+        "Missing data detection"
+      ]
+    },
+    {
+      title: "Post accurately — not manually",
+      bullets: [
+        "Line-item validation",
+        "Deductible and co-insurance logic",
+        "LEAT and downcoding recognition",
+        "Patient balance calculations"
+      ]
+    },
+    {
+      title: "Nothing falls through the cracks",
+      bullets: [
+        "Dental reason summaries",
+        "Underpayment flags",
+        "Adjustment audit trail",
+        "Posting verification support"
+      ]
+    }
+  ];
+
   return (
     <section className="py-16 px-4 mx-auto max-w-6xl">
-      <div className="bg-gradient-to-br from-blue-700 to-blue-900 text-white rounded-lg p-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">EOB Payment Posting AI</h2>
-        <p className="text-lg mb-8 text-blue-100">Our flagship AI tool is designed specifically for dental insurance workflows.</p>
-        
-        <h3 className="text-2xl font-bold mb-6">Key Capabilities</h3>
-        <ul className="space-y-3 mb-8">
-          <li className="flex items-start gap-3">
-            <span className="text-yellow-300 font-bold mt-1">●</span>
-            <span>AI-powered EOB and EOP parsing</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-yellow-300 font-bold mt-1">●</span>
-            <span>Multi-payer dental insurance support</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-yellow-300 font-bold mt-1">●</span>
-            <span>Posting-ready summaries</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-yellow-300 font-bold mt-1">●</span>
-            <span>Denial and remark code explanations</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-yellow-300 font-bold mt-1">●</span>
-            <span>Exception flagging for human review</span>
-          </li>
-        </ul>
+      <div className="bg-gradient-to-br from-[#0c52e0] to-[#0a3fa8] rounded-lg p-12">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
 
-        <p className="text-blue-100 mb-8">Built for real dental billing workflows — not generic OCR.</p>
-        
-        <a href="/contact" className="inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-full hover:bg-blue-50 transition">Get a Demo</a>
+          {/* LEFT */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 !text-white">
+              EOB Payment Posting AI
+            </h2>
+
+            <p className="text-lg mb-12 !text-white">
+              Our flagship AI tool is designed specifically for dental insurance workflows.
+            </p>
+
+            <div className="grid grid-cols-1 gap-8 mb-8">
+              {sections.map((section, index) => (
+                <div key={index}>
+                  <h3 className="text-xl font-bold mb-4 !text-white">
+                    {section.title}
+                  </h3>
+
+                  <ul className="space-y-3">
+                    {section.bullets.map((bullet, bulletIndex) => (
+                      <li key={bulletIndex} className="flex items-start gap-3">
+                        <span className="!text-white text-lg leading-none">•</span>
+                        <span className="!text-white">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="/contact"
+              className="inline-block bg-white !text-[#0c52e0] font-bold px-8 py-3 rounded-full hover:bg-blue-50 transition"
+            >
+              Get a Demo
+            </a>
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <div className="flex items-center justify-center">
+            <img
+              src="/images/eob-ai-white.png"
+              alt="EOB Payment Posting AI"
+              className="w-full max-w-sm"
+            />
+          </div>
+
+        </div>
       </div>
     </section>
   );

@@ -1,12 +1,12 @@
 export default function Footer() {
   return (
     <footer className="w-full mt-12">
-      <div className="bg-blue-700 text-white">
+      <div className="bg-[#0c52e0] text-white">
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-start justify-between gap-8">
           <div className="flex items-center gap-4">
-            <img src="/images/logo.webp" alt="Dental Billing Logo" className="w-12 h-12 rounded-md bg-white p-1" />
+            <img src="/images/logo.webp" alt="Dental Billing Logo" className="w-16 h-16 rounded-md bg-white p-2" />
             <div>
-              <div className="font-bold text-lg">Dental Billing</div>
+              <div className="font-bold text-xl">Dental Billing</div>
               <div className="text-sm text-blue-200">Dental Billing Services & Solutions</div>
             </div>
           </div>
@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-blue-700 text-blue-200">
+      <div className="bg-[#0c52e0] text-blue-200">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-sm">
           <div>© {new Date().getFullYear()} Dental Billing. All rights reserved.</div>
           <div className="flex items-center gap-4">

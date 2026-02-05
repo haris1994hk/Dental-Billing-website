@@ -5,21 +5,21 @@ export default function Services() {
       <p className="text-lg text-slate-700 mb-12">Dental Billing Aid also offers expert dental billing services supported by our AI platform.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        <div className="border-2 border-blue-200 p-8 rounded-lg hover:border-blue-700 transition">
-          <h3 className="text-xl font-bold text-blue-700 mb-4">Dental Billing & Claim Submission</h3>
-          <p className="text-slate-700">End-to-end insurance billing, claim follow-ups, and AR support.</p>
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg hover:shadow-lg transition">
+          <h3 className="text-xl font-bold text-white mb-4">Dental Billing & Claim Submission</h3>
+          <p className="text-gray-600">End-to-end insurance billing, claim follow-ups, and AR support.</p>
         </div>
-        <div className="border-2 border-blue-200 p-8 rounded-lg hover:border-blue-700 transition">
-          <h3 className="text-xl font-bold text-blue-700 mb-4">Insurance Verification</h3>
-          <p className="text-slate-700">Accurate eligibility, benefits, limitations, and frequency checks.</p>
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg hover:shadow-lg transition">
+          <h3 className="text-xl font-bold text-white mb-4">Insurance Verification</h3>
+          <p className="text-gray-600">Accurate eligibility, benefits, limitations, and frequency checks.</p>
         </div>
-        <div className="border-2 border-blue-200 p-8 rounded-lg hover:border-blue-700 transition">
-          <h3 className="text-xl font-bold text-blue-700 mb-4">Appointment Scheduling & Front Office Support</h3>
-          <p className="text-slate-700">Patient calls, confirmations, recalls, and scheduling assistance.</p>
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg hover:shadow-lg transition">
+          <h3 className="text-xl font-bold text-white mb-4">Appointment Scheduling & Front Office Support</h3>
+          <p className="text-gray-600">Patient calls, confirmations, recalls, and scheduling assistance.</p>
         </div>
       </div>
 
-      <a href="/services" className="inline-block rounded-full text-blue-700 font-semibold px-8 py-3 border-2 border-blue-700 hover:bg-blue-50 transition">View Services</a>
+      <a href="/services" className="inline-block rounded-full text-[#0c52e0] font-semibold px-8 py-3 border-2 border-[#0c52e0] hover:bg-[#0c52e0] hover:text-white transition">View Services</a>
     </section>
   );
 }
