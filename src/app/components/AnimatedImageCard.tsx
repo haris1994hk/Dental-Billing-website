@@ -25,34 +25,22 @@ export default function AnimatedImageCard({ src, alt }: { src: string; alt: stri
           75% { transform: translateY(-20px) translateX(8px); }
         }
         
-        .splash-container {
+        .image-container {
           position: relative;
           width: 100%;
           max-width: 400px;
-          aspect-ratio: 1;
           display: flex;
           align-items: center;
           justify-content: center;
         }
         
-        .splash-bg {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-          clip-path: polygon(
-            30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%
-          );
-          border-radius: 45% 55% 52% 48% / 48% 45% 55% 52%;
-        }
-        
-        .splash-image {
+        .container-image {
           position: relative;
           z-index: 10;
-          width: 90%;
-          height: 90%;
+          width: 100%;
+          max-width: 100%;
           object-fit: cover;
-          border-radius: 45% 55% 52% 48% / 48% 45% 55% 52%;
+          border-radius: 16px;
           box-shadow: 0 10px 40px rgba(12, 82, 224, 0.15);
         }
         
@@ -96,9 +84,8 @@ export default function AnimatedImageCard({ src, alt }: { src: string; alt: stri
         }
       `}</style>
       
-      <div className="splash-container">
-        <div className="splash-bg"></div>
-        <img src={src} alt={alt} className="splash-image" />
+      <div className="image-container">
+        <img src={src} alt={alt} className="container-image" />
         
         {/* Floating Icon Images */}
         <div className="floating-icon icon-1">
