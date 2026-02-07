@@ -102,13 +102,13 @@ export default function AnimatedImageCard({ src, alt }: { src: string; alt: stri
         
         {/* Floating Icon Images */}
         <div className="floating-icon icon-1">
-          <img src="/images/icon1.png" alt="Icon 1" />
+          <img src="/images/icon1.webp" alt="Icon 1" />
         </div>
         <div className="floating-icon icon-2">
-          <img src="/images/icon2.png" alt="Icon 2" />
+          <img src="/images/icon2.webp" alt="Icon 2" />
         </div>
         <div className="floating-icon icon-3">
-          <img src="/images/icon3.png" alt="Icon 3" />
+          <img src="/images/icon3.webp" alt="Icon 3" />
         </div>
       </div>
     </div>
