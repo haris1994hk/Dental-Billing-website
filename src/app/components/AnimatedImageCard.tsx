@@ -58,16 +58,23 @@ export default function AnimatedImageCard({ src, alt }: { src: string; alt: stri
         
         .floating-icon {
           position: absolute;
-          width: 50px;
-          height: 50px;
+          width: 60px;
+          height: 60px;
           display: flex;
           align-items: center;
           justify-content: center;
           background: white;
           border-radius: 50%;
           box-shadow: 0 4px 15px rgba(12, 82, 224, 0.2);
-          font-size: 24px;
           z-index: 20;
+          overflow: hidden;
+        }
+
+        .floating-icon img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          padding: 8px;
         }
         
         .icon-1 {
@@ -93,10 +100,16 @@ export default function AnimatedImageCard({ src, alt }: { src: string; alt: stri
         <div className="splash-bg"></div>
         <img src={src} alt={alt} className="splash-image" />
         
-        {/* Floating Icons */}
-        <div className="floating-icon icon-1">✓</div>
-        <div className="floating-icon icon-2">⚡</div>
-        <div className="floating-icon icon-3">★</div>
+        {/* Floating Icon Images */}
+        <div className="floating-icon icon-1">
+          <img src="/images/icon1.png" alt="Icon 1" />
+        </div>
+        <div className="floating-icon icon-2">
+          <img src="/images/icon2.png" alt="Icon 2" />
+        </div>
+        <div className="floating-icon icon-3">
+          <img src="/images/icon3.png" alt="Icon 3" />
+        </div>
       </div>
     </div>
   );

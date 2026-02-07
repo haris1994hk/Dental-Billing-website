@@ -6,7 +6,7 @@ export default function WhyChoose() {
         <div className="flex justify-center md:justify-start">
             
           <div className="why-image relative w-72 h-72 rounded-full overflow-hidden shadow-lg">
-            <img src="/images/hero.jpg" alt="Why choose" className="w-full h-full object-cover" />
+            <img src="/images/main.png" alt="Why choose" className="w-full h-full object-cover" />
           </div>
         </div>
 

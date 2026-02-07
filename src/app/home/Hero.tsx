@@ -38,7 +38,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="flex-1 flex justify-center md:justify-end">
-            <AnimatedImageCard src="/images/hero.jpg" alt="Dental Billing Hero" />
+            <AnimatedImageCard src="/images/main.png" alt="Dental Billing Hero" />
           </div>
         </div>
       </section>
