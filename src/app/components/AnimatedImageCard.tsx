@@ -41,7 +41,6 @@ export default function AnimatedImageCard({ src, alt }: { src: string; alt: stri
           max-width: 100%;
           object-fit: cover;
           border-radius: 16px;
-          box-shadow: 0 10px 40px rgba(12, 82, 224, 0.15);
         }
         
         .floating-icon {
@@ -72,14 +71,14 @@ export default function AnimatedImageCard({ src, alt }: { src: string; alt: stri
         }
         
         .icon-2 {
-          bottom: 10%;
-          left: -15px;
+          bottom: -38px;
+          right: 20%;
           animation: float2 7s ease-in-out infinite;
         }
         
         .icon-3 {
-          top: 15%;
-          left: -20px;
+          bottom: 20%;
+          left: -2%;
           animation: float3 5.5s ease-in-out infinite;
         }
       `}</style>
