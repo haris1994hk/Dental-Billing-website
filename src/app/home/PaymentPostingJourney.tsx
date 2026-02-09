@@ -1,6 +1,6 @@
 export default function PaymentPostingJourney() {
   return (
-    <section className="py-16 px-4 mx-auto max-w-6xl bg-slate-50 rounded-lg my-12">
+    <section className="py-16 px-4 mx-auto max-w-7xl bg-slate-50 rounded-lg my-12">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-800">The Complete Payment Posting Journey</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>

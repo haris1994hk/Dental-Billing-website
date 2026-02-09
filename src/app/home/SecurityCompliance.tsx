@@ -2,7 +2,7 @@
 
 export default function SecurityCompliance() {
   return (
-    <section className="py-16 px-4 mx-auto max-w-6xl">
+    <section className="py-16 px-4 mx-auto max-w-7xl">
       <div className="bg-white border border-slate-200 rounded-lg p-12 shadow-lg">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* LEFT SIDE - ILLUSTRATION */}

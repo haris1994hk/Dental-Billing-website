@@ -30,9 +30,9 @@ export default function EOBPaymentPostingAI() {
   ];
 
   return (
-    <section className="py-16 px-4 mx-auto max-w-6xl">
-      <div className="bg-gradient-to-br from-[#0c52e0] to-[#0a3fa8] rounded-lg p-12">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+    <section className="py-16 px-4 mx-auto max-w-7xl">
+      <div className="bg-gradient-to-br from-[#0c52e0] to-[#0a3fa8] rounded-lg p-8 md:p-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
 
           {/* LEFT */}
           <div>
@@ -71,13 +71,25 @@ export default function EOBPaymentPostingAI() {
             </a>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="flex items-center justify-center">
-            <img
-              src="/images/eob-ai-white.png"
-              alt="EOB Payment Posting AI"
-              className="w-full max-w-sm"
-            />
+          {/* RIGHT IMAGES */}
+          <div className="flex flex-col gap-6 items-center justify-center">
+            {/* First Image */}
+            <div className="w-full rounded-lg overflow-hidden">
+              <img
+                src="/images/eob1.png"
+                alt="EOB Payment Posting AI - Dashboard"
+                className="w-[600px] h-[400px]"
+              />
+            </div>
+
+            {/* Second Image */}
+            <div className="w-full rounded-lg overflow-hidden">
+              <img
+                src="/images/eob2.png"
+                alt="EOB Payment Posting AI - Reports"
+                className="w-full h-[350px]"
+              />
+            </div>
           </div>
 
         </div>

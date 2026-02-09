@@ -1,6 +1,6 @@
 export default function Services() {
   return (
-    <section className="py-16 px-4 mx-auto max-w-6xl">
+    <section className="py-16 px-4 mx-auto max-w-7xl">
       <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">Prefer Done-For-You Billing Support?</h2>
       <p className="text-lg text-slate-700 mb-12">Dental Billing Aid also offers expert dental billing services supported by our AI platform.</p>
 

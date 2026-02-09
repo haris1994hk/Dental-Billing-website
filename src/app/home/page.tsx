@@ -4,6 +4,7 @@ import KeyBenefits from './KeyBenefits';
 import HowItWorks from './HowItWorks';
 import PaymentPostingJourney from './PaymentPostingJourney';
 import EOBPaymentPostingAI from './EOBPaymentPostingAI';
+import ContactFormSection from './ContactFormSection';
 import Services from './Services';
 import WhoWeServe from './WhoWeServe';
 import SecurityCompliance from './SecurityCompliance';
@@ -23,6 +24,7 @@ export default function HomePage() {
       <WhoWeServe />
       <SecurityCompliance />
       <Testimonial />
+      <ContactFormSection />
       <FinalCTA />
     </>
   );
