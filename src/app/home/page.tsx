@@ -1,31 +1,15 @@
-import Hero from './Hero';
-import ValueStatement from './ValueStatement';
-import KeyBenefits from './KeyBenefits';
-import HowItWorks from './HowItWorks';
-import PaymentPostingJourney from './PaymentPostingJourney';
-import EOBPaymentPostingAI from './EOBPaymentPostingAI';
-import ContactFormSection from './ContactFormSection';
-import Services from './Services';
-import WhoWeServe from './WhoWeServe';
-import SecurityCompliance from './SecurityCompliance';
-import Testimonial from './Testimonial';
-import FinalCTA from './FinalCTA';
+'use client';
+
+import HeroSection from './HeroSection';
+import AboutSection from './AboutSection';
+
 
 export default function HomePage() {
   return (
-    <>
-      <Hero />
-      <ValueStatement />
-      <KeyBenefits />
-      <HowItWorks />
-      <PaymentPostingJourney />
-      <EOBPaymentPostingAI />
-      <Services />
-      <WhoWeServe />
-      <SecurityCompliance />
-      <Testimonial />
-      <ContactFormSection />
-      <FinalCTA />
-    </>
+    <div className="w-full bg-white">
+      <HeroSection />
+      <AboutSection />
+      
+    </div>
   );
 }
