@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
+import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 export default function Header() {
   return (
@@ -10,22 +12,22 @@ export default function Header() {
         <div className="max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm">
           <div className="flex flex-wrap justify-center sm:justify-start gap-24 sm:gap-46">
             <a href="tel:+15551234567" className="flex items-center gap-2.5 hover:text-blue-100 transition">
-              <span>📞</span>
+              <FiPhone className="text-white text-lg font-bold" />
               <span>+1 (555) 123-4567</span>
             </a>
             <a href="mailto:info@dentalbillingaid.com" className="flex items-center gap-2.5 hover:text-blue-100 transition">
-              <span>✉️</span>
+              <FiMail className="text-white text-lg font-bold" />
               <span>info@dentalbillingaid.com</span>
             </a>
             <span className="flex items-center gap-2.5">
-              <span>📍</span>
+              <FiMapPin className="text-white text-lg font-bold" />
               <span>123 Dental Ave, Suite 100, California, USA</span>
             </span>
           </div>
           <div className="flex gap-3">
-            <a href="#" className="hover:text-blue-100 bg-white rounded-full w-6 h-6 text-blue-600 flex items-center justify-center transition font-semibold">f</a>
-            <a href="#" className="hover:text-blue-100 bg-white rounded-full w-6 h-6 text-blue-600 flex items-center justify-center transition font-semibold">in</a>
-            <a href="#" className="hover:text-blue-100 bg-white rounded-full w-6 h-6 text-blue-600 flex items-center justify-center transition font-semibold">tw</a>
+            <a href="#" className="hover:text-blue-100 bg-white rounded-full w-6 h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaFacebook className="text-sm" /></a>
+            <a href="#" className="hover:text-blue-100 bg-white rounded-full w-6 h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaInstagram className="text-sm" /></a>
+            <a href="#" className="hover:text-blue-100 bg-white rounded-full w-6 h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaWhatsapp className="text-sm" /></a>
           </div>
         </div>
       </div>
@@ -41,16 +43,16 @@ export default function Header() {
 
             {/* Nav Items */}
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium transition">
+              <Link href="/" className="text-black font-semibold hover:text-blue-600 font-medium transition">
                 Home
               </Link>
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition">
+              <Link href="/about" className="text-black font-semibold hover:text-blue-600 font-medium transition">
                 About
               </Link>
-              <Link href="/resources" className="text-gray-700 hover:text-blue-600 font-medium transition">
+              <Link href="/resources" className="text-black font-semibold hover:text-blue-600 font-medium transition">
                 Resources
               </Link>
-              <Link href="/pricing" className="text-gray-700 hover:text-blue-600 font-medium transition">
+              <Link href="/pricing" className="text-black font-semibold hover:text-blue-600 font-medium transition">
                 Pricing
               </Link>
             </div>

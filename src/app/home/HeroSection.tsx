@@ -17,7 +17,7 @@ export default function HeroSection() {
             <div className="text-white">
               <div className="inline-block mb-6 bg-white !text-black px-4 py-2 rounded-full border border-white/30">
                 <span className="text-sm font-semibold flex items-center gap-2">
-                  <span className=''>⚙️</span>
+                  <span >⚙️</span>
                   Post Dental Insurance Payments Smarter
                 </span>
               </div>
