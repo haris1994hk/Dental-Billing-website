@@ -4,6 +4,7 @@ import HeroSection from './HeroSection';
 import AboutSection from './AboutSection';
 import ServicesSection from './ServicesSection';
 import HowItWorks from './HowItWorks';
+import ContactForm from '../components/ContactForm';
 
 
 export default function HomePage() {
@@ -13,6 +14,9 @@ export default function HomePage() {
       <AboutSection />
       <ServicesSection />
       <HowItWorks />
+                <ContactForm />
+
+    
     </div>
   );
 }

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function ContactForm() {
   return (
-    <div className="max-w-6xl mx-auto px-4">
+    <div className="max-w-6xl mx-auto mt-20 px-4">
       <div className="bg-[#14479b] text-white rounded-3xl p-8 lg:p-12 shadow-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <div>

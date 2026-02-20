@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
 import { ReactNode } from "react";
-import ContactForm from "../components/ContactForm";
 
 export default function HowItWorks() {
   return (
-    <section className="relative w-screen left-1/2 right-1/2 -translate-x-1/2 mt-20 bg-[#eef3fb] py-16">
+    <section className="relative w-screen left-1/2 right-1/2 -translate-x-1/2 mt-20 bg-[#eef3fb]  pt-16">
       <div className="max-w-8xl mx-auto px-4 text-center">
         <h2 className="text-3xl sm:text-4xl font-extrabold !text-black">
           How Our <span className="text-[#1b489b]">AI Dental Billing Agent</span> Works!
@@ -14,7 +13,7 @@ export default function HowItWorks() {
           Our flagship AI tool is designed specifically for dental insurance workflows
         </p>
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+        <div className="mt-12 grid grid-cols-1  lg:grid-cols-3 gap-10 items-center">
 
           {/* LEFT */}
           <div className="space-y-10 flex flex-col items-center">
@@ -37,16 +36,17 @@ export default function HowItWorks() {
               }
             />
           </div>
-
-          {/* CENTER IMAGE */}
-          <div className="flex justify-center">
-            <Image
-              src="/images/how-it-works.png"
-              alt="How it works"
-              width={420}
-              height={420}
-              className="rounded-xl"
-            />
+          <div className="flex  justify-center">
+            <div className="block lg:hidden    ">
+              <Image
+                src="/images/Doc.png"
+                alt="How it works"
+                width={320}
+                height={320}
+                className="rounded-xl"
+              />
+            </div>
+            <div className="hidden lg:block" style={{height: 420}} aria-hidden />
           </div>
 
           {/* RIGHT */}
@@ -65,10 +65,18 @@ export default function HowItWorks() {
           </div>
 
         </div>
-        {/* CONTACT FORM */}
-        <div className="mt-16">
-          <ContactForm />
+
+        {/* absolutely positioned center image on large screens, attached to section bottom */}
+        <div className="hidden lg:block absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-0 z-20">
+          <Image
+            src="/images/Doc.png"
+            alt="How it works"
+            width={420}
+            height={420}
+            className="rounded-xl w-[550px] h-[550px]"
+          />
         </div>
+        
       </div>
     </section>
   );
