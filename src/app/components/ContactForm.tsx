@@ -14,14 +14,14 @@ export default function ContactForm() {
           </div>
 
           <form className="space-y-4 bg-transparent p-2 lg:p-0 text-white">
-            <div className="grid grid-cols-2 gap-4 justify-end">
-              <div className="flex flex-col items-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col items-start w-full">
                 <label className="block text-xs text-white/90 text-left">First Name*</label>
-                <input className="mt-1 w-full max-w-[180px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400" />
+                <input className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400" />
               </div>
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-start w-full">
                 <label className="block text-xs text-white/90 text-left">Last Name*</label>
-                <input className="mt-1 w-full max-w-[180px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"  />
+                <input className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"  />
               </div>
             </div>
 
@@ -30,14 +30,14 @@ export default function ContactForm() {
               <input className="mt-1 w-full rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400" />
             </div>
 
-            <div className="grid grid-cols-2 gap-4 justify-end items-end">
-              <div className="flex flex-col items-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+              <div className="flex flex-col items-start w-full">
                 <label className="block text-xs text-white/90 text-left">Date*</label>
-                <input type="date" className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-40" />
+                <input type="date" className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-full sm:w-40" />
               </div>
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-start w-full">
                 <label className="block text-xs text-white/90 text-left">Time*</label>
-                <input type="time" className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-28" />
+                <input type="time" className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-full sm:w-36" />
               </div>
             </div>
 
@@ -53,7 +53,7 @@ export default function ContactForm() {
 
             <div className="flex justify-start">
               <button type="button" className="bg-white text-[#1b489b] px-6 py-1 rounded-full font-semibold shadow inline-flex items-center gap-3">
-                <span className="text-[20px]">Send</span>
+                <span className="text-[18px] sm:text-[20px]">Send</span>
                 <span className="w-7 h-7 bg-[#e6eefb] text-[#1b489b] rounded-full flex items-center justify-center">›</span>
               </button>
             </div>
