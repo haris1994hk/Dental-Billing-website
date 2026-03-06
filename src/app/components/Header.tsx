@@ -9,7 +9,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full bg-white">
+    <header className="w-full bg-white sticky top-0 z-50">
       {/* Top Info Bar */}
       <div className="w-full bg-[#1b489b] text-white py-2 sm:py-2.5">
         <div className="max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm">
@@ -38,7 +38,7 @@ export default function Header() {
       </div>
 
       {/* Main Navigation */}
-      <nav className="w-full bg-white sticky top-0 z-50 shadow-sm">
+      <nav className="w-full bg-white shadow-sm">
         <div className="max-w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Logo */}

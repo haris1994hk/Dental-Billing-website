@@ -1,19 +1,52 @@
-export default function HeroSection() {
-  return (
-    <section className="w-full  animate-hero-pop animate-fade-in">
-      <div className="max-w-7xl mx-auto px-4 ">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          <div className="text-left">
-            <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900">Support for Your Dental Practice to Simplify Billing and Save Time!</h1>
-            <p className="mt-4 text-zinc-700 max-w-3xl">Support for Your Dental Practice to Simplify Billing and Save Time! Our service helps dental practices streamline billing and administrative tasks, so you can focus on patient care. With easy-to-use solutions, we reduce back-office hassles, improve efficiency, and save you valuable time, making day-to-day operations smoother and stress-free.</p>
-            <button className="mt-6 border border-blue-600 text-blue-600 px-6 py-2 rounded">GET STARTED TODAY!</button>
-          </div>
+"use client";
 
-          <div className="flex justify-center md:justify-end">
-            <img src="/images/about.png" alt="About" className="w-full max-w-md rounded-lg h-100  object-cover" />
-          </div>
-        </div>
+import Image from "next/image";
+import React from "react";
+
+export default function HeroSection() {
+	return (
+		<section className="w-full">
+			<div className="relative">
+				<div className="relative left-1/2 right-1/2 w-screen -translate-x-1/2  bg-[#1b489b]  border-b-8 border-blue-900">
+					<div className="absolute inset-0">
+					<Image
+						src="/images/dan.jpeg"
+						alt="hero background"
+						fill
+						className="object-cover object-center opacity-30"
+						priority
+					/>
+					<div className="absolute inset-0 bg-blue-800/80" />
+				</div>
+
+				<div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center text-white">
+						<div className="relative inline-block">
+							<span className="inline-block text-lg tracking-widest uppercase text-white">
+								ABOUT US
+							</span>
+							<span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-0.5 bg-white" />
+						</div>
+					<h1 className="mt-6 text-3xl md:text-4xl lg:text-5xl !text-white font-semibold">
+						AI-Driven Dental Revenue, Human-Supported Execution!
+					</h1>
+					<p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-white/90">
+						Dental Billing Aid is a modern dental revenue cycle company combining artificial intelligence with experienced dental billing professionals.
+					</p>
+				</div>
+			</div>
+
+			{/* White content block below banner (matches PDF layout) */}
+			<div className="bg-white ">
+				<div className="max-w-7xl mx-auto px-6">
+					<div className="flex flex-col md:flex-row items-center gap-8">
+						<div className="w-full md:w-1/2 flex justify-center">
+							
+						</div>
+
+					</div>
+				</div>
+			</div>
       </div>
-    </section>
-  );
+		</section>
+	);
 }

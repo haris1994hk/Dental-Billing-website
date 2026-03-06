@@ -9,7 +9,7 @@ export default function TestimonialsSection() {
   const [progress, setProgress] = useState(0);
 
   const CARD_WIDTH = 260; // px
-  const GAP = 24; // tailwind gap-6 = 1.5rem = 24px
+  const GAP = 24; 
   const SCROLL_AMOUNT = CARD_WIDTH + GAP;
 
   useEffect(() => {
