@@ -54,6 +54,9 @@ export default function Header() {
               <Link href="/about" className="text-black font-semibold hover:text-blue-600 text-sm xl:text-base transition">
                 About
               </Link>
+              <Link href="/services" className="text-black font-semibold hover:text-blue-600 text-sm xl:text-base transition">
+                Services
+              </Link>
               <Link href="/resources" className="text-black font-semibold hover:text-blue-600 text-sm xl:text-base transition">
                 Resources
               </Link>
@@ -85,8 +88,9 @@ export default function Header() {
                 </Link>
                 <Link href="/about" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
                   About
-                </Link>
-                <Link href="/resources" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
+                </Link>              <Link href="/services" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
+                Services
+              </Link>                <Link href="/resources" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
                   Resources
                 </Link>
                 <Link href="/pricing" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">

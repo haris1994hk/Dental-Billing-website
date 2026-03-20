@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function HumanServicesPricingSection() {
   const humanServices = [
     {
@@ -86,9 +88,9 @@ export default function HumanServicesPricingSection() {
                 </div>
 
                 {/* Request Quote Button */}
-                <button className="w-full mt-8 py-3 px-4 rounded-lg font-semibold bg-[#0b5cff] text-white hover:bg-[#053eaa] transition-all duration-300">
+                <Link href="/contact" className="w-full mt-8 py-3 px-4 rounded-lg font-semibold bg-[#0b5cff] text-white hover:bg-[#053eaa] transition-all duration-300 block text-center">
                   Request Quote
-                </button>
+                </Link>
               </div>
             </div>
           ))}
