@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { ScrollAnimatedItem } from "../components/ScrollAnimatedSection";
 
 const FAQ_ITEMS = [
   {
@@ -34,7 +35,8 @@ export default function FaqSection() {
           {FAQ_ITEMS.map((item, idx) => {
             const open = openIndex === idx;
             return (
-              <div key={idx} className="px-4">
+              <ScrollAnimatedItem key={idx} index={idx} animation="fadeInUp">
+                <div className="px-4">
                 {/* Outer rounded border to match design */}
                 <div className="rounded-xl border border-transparent shadow-sm overflow-hidden">
                   {/* inner light-blue panel with dark-blue left stripe underneath */}
@@ -60,6 +62,7 @@ export default function FaqSection() {
                   </div>
                 </div>
               </div>
+              </ScrollAnimatedItem>
             );
           })}
         </div>

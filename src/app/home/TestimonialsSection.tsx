@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
+import { ScrollAnimatedSection } from "../components/ScrollAnimatedSection";
 
 export default function TestimonialsSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -50,7 +51,8 @@ export default function TestimonialsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
           {/* Left: Quote and heading */}
-          <div className="relative flex flex-col items-start">
+          <ScrollAnimatedSection animation="fadeInLeft">
+            <div className="relative flex flex-col items-start">
 
             {/* Quote (absolute, does NOT affect layout) */}
             <div className="absolute -top-40 -left-3 text-gray-300 text-[380px] leading-none font-extrabold select-none">
@@ -68,52 +70,55 @@ export default function TestimonialsSection() {
               <div className="flex-1 border-t border-black mt-2" />
               <button className="text-3xl text-black">→</button>
             </div>
-          </div>
+            </div>
+          </ScrollAnimatedSection>
 
           {/* Right: Testimonial cards (slider) */}
-          <div className="flex justify-end">
-            <div className="relative">
+          <ScrollAnimatedSection animation="fadeInRight">
+            <div className="flex justify-end">
               <div className="relative">
-                <div
-                  ref={containerRef}
-                  className="flex gap-6 items-start overflow-x-auto pr-2 snap-x snap-mandatory scroll-smooth scrollbar-hide"
-                  style={{ scrollBehavior: "smooth", width: 'min(820px,100%)' }}
-                >
-                  {Array.from({ length: 3 }).map((_, idx) => (
-                    <div key={idx} className="flex-none bg-[#14479b] text-white rounded-xl p-4 shadow-md w-[260px] snap-start">
-                    <div className="text-yellow-300 mb-2 text-sm">★★★★★</div>
-                    <p className="text-[11px] leading-snug uppercase">
-                      Dental Billing Aid dramatically reduced the time we spend posting insurance payments and helped us catch underpayments we were missing before.
-                    </p>
-                    <div className="mt-3 text-[10px] opacity-90 font-semibold">
-                      HARIS KHAN<br />
-                      <span className="text-[9px] opacity-80 font-normal">DENTAL BILLING MANAGER, US</span>
+                <div className="relative">
+                  <div
+                    ref={containerRef}
+                    className="flex gap-6 items-start overflow-x-auto pr-2 snap-x snap-mandatory scroll-smooth scrollbar-hide"
+                    style={{ scrollBehavior: "smooth", width: 'min(820px,100%)' }}
+                  >
+                    {Array.from({ length: 3 }).map((_, idx) => (
+                      <div key={idx} className="flex-none bg-[#14479b] text-white rounded-xl p-4 shadow-md w-[260px] snap-start">
+                        <div className="text-yellow-300 mb-2 text-sm">★★★★★</div>
+                        <p className="text-[11px] leading-snug uppercase">
+                          Dental Billing Aid dramatically reduced the time we spend posting insurance payments and helped us catch underpayments we were missing before.
+                        </p>
+                        <div className="mt-3 text-[10px] opacity-90 font-semibold">
+                          HARIS KHAN<br />
+                          <span className="text-[9px] opacity-80 font-normal">DENTAL BILLING MANAGER, US</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* custom progress track */}
+                  <div className="mt-4">
+                    <div className="testimonial-track">
+                      <div className="testimonial-thumb" style={{ width: `${progress}%` }} />
                     </div>
                   </div>
-                ))}
-                </div>
 
-                {/* custom progress track */}
-                <div className="mt-4">
-                  <div className="testimonial-track">
-                    <div className="testimonial-thumb" style={{ width: `${progress}%` }} />
+                  <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
+                    <button onClick={prev} disabled={!canPrev} className={`slider-arrow ${canPrev ? 'primary' : ''}`} aria-label="Previous testimonials">
+                      ‹
+                    </button>
                   </div>
-                </div>
 
-                <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20">
-                  <button onClick={prev} disabled={!canPrev} className={`slider-arrow ${canPrev ? 'primary' : ''}`} aria-label="Previous testimonials">
-                    ‹
-                  </button>
-                </div>
-
-                <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20">
-                  <button onClick={next} disabled={!canNext} className={`slider-arrow ${canNext ? 'primary' : ''}`} aria-label="Next testimonials">
-                    ›
-                  </button>
+                  <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20">
+                    <button onClick={next} disabled={!canNext} className={`slider-arrow ${canNext ? 'primary' : ''}`} aria-label="Next testimonials">
+                      ›
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollAnimatedSection>
 
         </div>
       </div>

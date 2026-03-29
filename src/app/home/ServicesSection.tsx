@@ -1,6 +1,7 @@
 "use client";
 
 import ServiceCard from "./ServiceCard";
+import { ScrollAnimatedItem } from "../components/ScrollAnimatedSection";
 
 export default function ServicesSection() {
   const services = [
@@ -47,14 +48,16 @@ export default function ServicesSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
           {services.map((s, i) => (
-            <div key={s.id} className={`${i === 0 ? "order-1" : i === 1 ? "order-2" : i === 2 ? "order-3" : "order-4"}`}>
-              <ServiceCard
-                title={s.title}
-                description={s.description}
-                variant={s.variant as "primary" | "white"}
-                image={s.image}
-              />
-            </div>
+            <ScrollAnimatedItem key={s.id} index={i} animation="fadeInUp">
+              <div className={`${i === 0 ? "order-1" : i === 1 ? "order-2" : i === 2 ? "order-3" : "order-4"}`}>
+                <ServiceCard
+                  title={s.title}
+                  description={s.description}
+                  variant={s.variant as "primary" | "white"}
+                  image={s.image}
+                />
+              </div>
+            </ScrollAnimatedItem>
           ))}
         </div>
       </div>

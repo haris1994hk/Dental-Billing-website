@@ -8,18 +8,33 @@ import ArManagementService from './ArManagementService';
 import DenialManagementService from './DenialManagementService';
 import RevenueReportingService from './RevenueReportingService';
 import SubscribeSection from '../home/SubscribeSection';
+import { ScrollAnimatedSection } from '../components/ScrollAnimatedSection';
 
 export default function Services() {
   return (
     <div className="w-full bg-white">
       <ServicesHero />
-      <InsuranceVerificationService />
-      <ClaimSubmissionService />
-      <PaymentPostingService />
-      <ArManagementService />
-      <DenialManagementService />
-      <RevenueReportingService />
-      <SubscribeSection />
+      <ScrollAnimatedSection animation="fadeInUp">
+        <InsuranceVerificationService />
+      </ScrollAnimatedSection>
+      <ScrollAnimatedSection animation="fadeInUp">
+        <ClaimSubmissionService />
+      </ScrollAnimatedSection>
+      <ScrollAnimatedSection animation="fadeInUp">
+        <PaymentPostingService />
+      </ScrollAnimatedSection>
+      <ScrollAnimatedSection animation="fadeInUp">
+        <ArManagementService />
+      </ScrollAnimatedSection>
+      <ScrollAnimatedSection animation="fadeInUp">
+        <DenialManagementService />
+      </ScrollAnimatedSection>
+      <ScrollAnimatedSection animation="fadeInUp">
+        <RevenueReportingService />
+      </ScrollAnimatedSection>
+      <ScrollAnimatedSection animation="fadeInUp">
+        <SubscribeSection />
+      </ScrollAnimatedSection>
     </div>
   );
 }
