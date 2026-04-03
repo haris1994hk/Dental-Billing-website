@@ -12,7 +12,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-8 mb-10">
           <div className="bg-white dark:bg-zinc-900 rounded-xl shadow p-6">
             <h2 className="text-xl font-semibold mb-2 text-green-700">Get in Touch</h2>
-            <p className="text-zinc-700 dark:text-zinc-200 mb-2">Have questions or want a demo? Fill out the form or email us at <a href='mailto:info@dentalbilling.com' className='text-green-700 underline'>info@dentalbilling.com</a>.</p>
+            <p className="text-zinc-700 dark:text-zinc-200 mb-2">Have questions or want a demo? Fill out the form or email us at <a href='mailto:info@dentalbillingaid.com' className='text-green-700 underline'>info@dentalbillingaid.com</a>.</p>
             <form className="flex flex-col gap-4 mt-4">
               <input type="text" placeholder="Your Name" className="rounded border px-3 py-2" />
               <input type="email" placeholder="Your Email" className="rounded border px-3 py-2" />

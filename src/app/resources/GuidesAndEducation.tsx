@@ -1,6 +1,6 @@
 'use client';
 
-import { BookOpen, Download } from 'lucide-react';
+import { BookOpen, ArrowRight } from 'lucide-react';
 
 export default function GuidesAndEducation() {
   const guides = [
@@ -21,12 +21,12 @@ export default function GuidesAndEducation() {
       description: 'Common denial reasons and language to overturn claims.',
     },
     {
-      title: 'AI Payment Posting: How It Works and What to Expect',
-      description: 'Explanation of automated EOB extraction and PMS writeback.',
+      title: 'How PostEasy AI Works: A Plain English Guide',
+      description: 'Complete explanation of automated EOB extraction and how PostEasy AI saves your team hours on payment posting.',
     },
     {
-      title: 'Missed Appointment Recovery',
-      description: 'Scripts and follow-up systems to rebook cancellations.',
+      title: 'Top 5 Reasons Dental Claims Get Denied — And How to Fix Them',
+      description: 'The most common denial codes, what they mean, and how to prevent them before submission.',
     },
   ];
 
@@ -57,8 +57,8 @@ export default function GuidesAndEducation() {
                       {guide.description}
                     </p>
                     <button className="inline-flex items-center gap-2 text-[#1b489b] font-semibold hover:text-[#0f2d5f] transition">
-                      <Download className="w-4 h-4" />
-                      Download
+                      Read Article
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>

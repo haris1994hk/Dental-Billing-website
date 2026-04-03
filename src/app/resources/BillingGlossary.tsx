@@ -5,57 +5,19 @@ import { BookMarked } from 'lucide-react';
 export default function BillingGlossary() {
   const terms = [
     {
-      term: 'EOB',
-      fullForm: 'Explanation of Benefits',
-      definition:
-        'Document from the insurer showing billed, allowed, and paid amounts.',
+      term: 'AI Payment Posting',
+      fullForm: 'Automated EOB Processing',
+      definition: 'Technology that reads EOB and ERA documents, extracts payment data, and delivers posting-ready output without manual data entry. Tools like PostEasy AI process EOBs in minutes and flag denials automatically.',
     },
     {
-      term: 'EOP / ERA',
-      fullForm: 'Electronic Remittance Advice',
-      definition:
-        'Electronic version of the EOB for automated payment posting.',
+      term: 'EOB Automation',
+      fullForm: 'Remittance Automation',
+      definition: 'The process of using software to automatically parse, validate, and post Explanation of Benefits documents — eliminating manual entry and reducing posting errors.',
     },
     {
-      term: 'AR',
-      fullForm: 'Accounts Receivable',
-      definition: 'Money owed to the practice from insurers and patients.',
-    },
-    {
-      term: 'PMS',
-      fullForm: 'Practice Management Software',
-      definition:
-        'Systems like Dentrix, Eaglesoft, Open Dental for scheduling and billing.',
-    },
-    {
-      term: 'Pre-treatment Estimate',
-      fullForm: 'Predetermination',
-      definition: 'Request to insurer before treatment to estimate coverage.',
-    },
-    {
-      term: 'COB',
-      fullForm: 'Coordination of Benefits',
-      definition: 'Determines which insurer pays first when patient has dual coverage.',
-    },
-    {
-      term: 'Writeoff / Adjustment',
-      fullForm: 'Contractual Adjustment',
-      definition: 'Difference between billed amount and contracted rate.',
-    },
-    {
-      term: 'Downtime Coverage',
-      fullForm: 'Backup Verification',
-      definition: 'Backup verification methods when payer portals fail.',
-    },
-    {
-      term: 'Frequency Limitation',
-      fullForm: 'Schedule Limit',
-      definition: 'Restrictions on how often procedures can be claimed.',
-    },
-    {
-      term: 'Waiting Period',
-      fullForm: 'Eligibility Period',
-      definition: 'Delay before certain procedures become covered.',
+      term: 'RCM',
+      fullForm: 'Revenue Cycle Management',
+      definition: 'The full financial process of a dental practice — from insurance verification before an appointment to final payment collection. Efficient RCM directly determines a practice\'s profitability.',
     },
   ];
 

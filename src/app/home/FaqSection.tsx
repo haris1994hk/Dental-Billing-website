@@ -4,20 +4,20 @@ import { ScrollAnimatedItem } from "../components/ScrollAnimatedSection";
 
 const FAQ_ITEMS = [
   {
-    q: "What type of Billing Services do you offer?",
-    a: "We provide end-to-end dental billing services including EOB/EOP processing, denial management, claim resubmissions, payment posting, and reporting. Our AI assists with data extraction and validation to speed up workflows.",
+    q: "How does PostEasy AI actually work?",
+    a: "PostEasy AI reads your EOB and EOP documents — whether scanned, PDF, or digital remittance files — extracts the payment data using AI, validates the calculations, and organizes everything into a posting-ready format. It flags denials, adjustments, write-offs, and patient responsibility automatically. No manual entry required.",
   },
   {
-    q: "How many Billings your AI tool can handle a day?",
-    a: "Our platform is scalable — depending on your subscription and setup it can process hundreds to thousands of EOBs per day. We can size a plan based on your clinic volume.",
+    q: "Does it work with my practice management software?",
+    a: "PostEasy AI is designed to work alongside Open Dental, Dentrix, and most major dental PMS workflows. You export the structured data and post it directly — no complex integration or IT setup required.",
   },
   {
-    q: "What's the pricing for a clinic with minimum 100 billings a week?",
-    a: "Pricing depends on the exact feature set and level of human review you require. Contact us for a tailored quote — we offer plans designed for small and medium practices.",
+    q: "Is my patient data safe and HIPAA compliant?",
+    a: "Yes. PostEasy AI is built with HIPAA-ready architecture, secure document handling, and access-controlled workflows. Patient and insurance data is never stored beyond your session unless you choose otherwise. All outputs are audit-friendly.",
   },
   {
-    q: "Can we get a free on-hand demo of this AI Tool?",
-    a: "Yes — schedule a free demo and consultation. We’ll walk through your workflow, show the AI in action, and discuss integration and pricing.",
+    q: "Can I try it before committing?",
+    a: "Absolutely. We offer a free live demo where we walk you through the tool using real EOB samples. No credit card, no commitment. Book your demo above and see PostEasy AI handle a real posting workflow in under 10 minutes.",
   },
 ];
 

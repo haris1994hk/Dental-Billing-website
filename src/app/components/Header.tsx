@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { FiPhone, FiMail, FiMapPin, FiMenu, FiX } from 'react-icons/fi';
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { useState } from 'react';
+import ContactModal from './ContactModal';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   return (
     <header className="w-full bg-white sticky top-0 z-50">
@@ -74,7 +76,10 @@ export default function Header() {
             </button>
 
             {/* Desktop CTA Button */}
-            <button className="hidden sm:block bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg flex-shrink-0">
+            <button
+              onClick={() => setContactModalOpen(true)}
+              className="hidden sm:block bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg flex-shrink-0"
+            >
               Contact Us
             </button>
           </div>
@@ -96,7 +101,10 @@ export default function Header() {
                 <Link href="/pricing" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
                   Pricing
                 </Link>
-                <button className="w-full mt-2 bg-blue-600 text-white px-3 py-2 rounded-full text-base font-semibold hover:bg-blue-700 transition-colors shadow-md">
+                <button
+                  onClick={() => setContactModalOpen(true)}
+                  className="w-full mt-2 bg-blue-600 text-white px-3 py-2 rounded-full text-base font-semibold hover:bg-blue-700 transition-colors shadow-md"
+                >
                   Contact Us
                 </button>
               </div>
@@ -104,6 +112,8 @@ export default function Header() {
           )}
         </div>
       </nav>
+
+      <ContactModal isOpen={contactModalOpen} onClose={() => setContactModalOpen(false)} />
     </header>
   );
 }

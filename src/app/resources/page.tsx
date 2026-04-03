@@ -4,9 +4,10 @@ import ResourcesHero from './ResourcesHero';
 import KeyPerformanceInsights from './KeyPerformanceInsights';
 import GuidesAndEducation from './GuidesAndEducation';
 import Checklists from './Checklists';
-import FrequentlyAskedQuestions from './FrequentlyAskedQuestions';
+import PostEasyAIInAction from './PostEasyAIInAction';
 import BillingGlossary from './BillingGlossary';
 import SubscribeSection from '../home/SubscribeSection';
+import FaqSection from '../home/FaqSection';
 import { ScrollAnimatedSection } from '../components/ScrollAnimatedSection';
 
 export default function Resources() {
@@ -23,7 +24,10 @@ export default function Resources() {
         <Checklists />
       </ScrollAnimatedSection>
       <ScrollAnimatedSection animation="fadeInUp">
-        <FrequentlyAskedQuestions />
+        <PostEasyAIInAction />
+      </ScrollAnimatedSection>
+      <ScrollAnimatedSection animation="fadeInUp">
+        <FaqSection />
       </ScrollAnimatedSection>
       <ScrollAnimatedSection animation="fadeInUp">
         <BillingGlossary />

@@ -1,8 +1,11 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
+import ContactModal from '../components/ContactModal';
 
 export default function HeroSection() {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
   return (
     <>
       <section className="w-screen relative bg-[#1b489b] overflow-visible -ml-[calc(50vw-50%)] pb-15 ">
@@ -23,15 +26,17 @@ export default function HeroSection() {
               </div>
 
               <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-6 leading-tight !text-white">
-                AI-Powered EOB Payment Posting for Dental Practices
+AI-Powered · HIPAA-Ready · Built for Dental Practices
               </h1>
 
               <p className="text-sm xs:text-base sm:text-lg lg:text-lg text-white mb-4 sm:mb-8 leading-relaxed">
-                Automate EOB and EOP payment posting, reduce posting errors, and protect every dollar your practice earns — with AI software and optional expert billing support.
-              </p>
+Stop manually posting EOBs. Our AI reads, validates, and structures insurance payment data in minutes so your team can focus on patient care, not paperwork.              </p>
 
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
-                <button className="bg-white text-blue-600 font-bold py-2 xs:py-2.5 sm:py-3 px-4 xs:px-6 sm:px-8 rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-xs xs:text-sm sm:text-base whitespace-nowrap flex-1 sm:flex-none">
+                <button
+                  onClick={() => setContactModalOpen(true)}
+                  className="bg-white text-blue-600 font-bold py-2 xs:py-2.5 sm:py-3 px-4 xs:px-6 sm:px-8 rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-xs xs:text-sm sm:text-base whitespace-nowrap flex-1 sm:flex-none"
+                >
                   Get A Demo
                 </button>
                 <button className="bg-transparent border-2 border-white text-white font-bold py-2 xs:py-2.5 sm:py-3 px-4 xs:px-6 sm:px-8 rounded-lg hover:bg-white/10 transition-all text-xs xs:text-sm sm:text-base flex-1 sm:flex-none">
@@ -75,6 +80,8 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      <ContactModal isOpen={contactModalOpen} onClose={() => setContactModalOpen(false)} />
     </>
   );
 }

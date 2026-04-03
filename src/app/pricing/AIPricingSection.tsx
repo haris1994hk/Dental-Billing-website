@@ -3,52 +3,59 @@
 import { MdCheck } from 'react-icons/md';
 
 export default function AIPricingSection() {
+  const fullFeatures = [
+    'AI EOB & EOP Extraction',
+    'Claim Summarization & Parsing',
+    'Payment Posting Automation',
+    'Denial Detection & Flagging',
+    'PMS Writeback Support',
+    'Appeal Support',
+    'Advanced Analytics & Reporting',
+    'Monthly Performance Dashboard',
+    'Dedicated Onboarding',
+  ];
+
   const aiPlans = [
     {
-      name: 'Starter Plan',
+      name: 'STARTER',
+      price: '$249',
+      period: '/month',
+      volume: 'Up to 150 EOBs/month',
+      description: 'Best for hybrid practices managing partial in-house posting',
+      features: fullFeatures,
+      highlighted: false,
+      cta: 'Get Started',
+    },
+    {
+      name: 'GROWTH',
+      price: '$399',
+      period: '/month',
+      volume: '150–350 EOBs/month',
+      description: 'Ideal for small 1–2 dentist clinics',
+      features: ['All features included', 'Higher EOB Processing Volume'],
+      highlighted: true,
+      badge: 'MOST POPULAR',
+      cta: 'Get Started',
+    },
+    {
+      name: 'PLUS',
       price: '$599',
       period: '/month',
-      claims: '1–100 Claims Per Month',
-      description: 'Best for single-location practices with moderate claim volume.',
-      features: [
-        'AI EOB, EOP & Pre-Treatment Extraction',
-        'Claim Summarization & Parsing',
-        'Payment Posting Automation',
-        'PMS Writeback',
-        'Denial Management Detection',
-        'Appeal Support',
-        'Monthly Performance Dashboard',
-      ],
+      volume: '350–700 EOBs/month',
+      description: 'Ideal for medium 2–4 dentist clinics',
+      features: ['All features included', 'Higher EOB Processing Volume'],
       highlighted: false,
+      cta: 'Get Started',
     },
     {
-      name: 'Growth Plan',
+      name: 'UNLIMITED',
       price: '$999',
       period: '/month',
-      claims: '100–500 Claims Per Month',
-      description: 'Ideal for high-volume practices and small DSOs.',
-      features: [
-        'Everything in Starter',
-        'Higher claim processing capacity',
-        'Priority processing',
-        'Advanced analytics reporting',
-      ],
-      highlighted: true,
-    },
-    {
-      name: 'Enterprise Plan',
-      price: 'Custom',
-      period: 'pricing',
-      claims: '500+ Claims',
-      description: 'Multi-location & DSO solutions available.',
-      features: [
-        'Custom solutions tailored to your needs',
-        'Unlimited claim processing',
-        'Dedicated account manager',
-        'Custom integrations & API access',
-        'Priority 24/7 support',
-      ],
+      volume: 'Unlimited EOBs',
+      description: 'Ideal for large clinics, multi-location groups & DSOs',
+      features: ['All features included', 'Unlimited EOB Processing', 'Priority 24/7 Support'],
       highlighted: false,
+      cta: 'Contact Us',
     },
   ];
 
@@ -57,61 +64,59 @@ export default function AIPricingSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#1b489b] mb-4">
-            AI Payment Posting Tool
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            PostEasy AI — Payment Posting Plans
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Automate your payment posting with AI-powered extraction and claim management
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Automate your EOB and EOP payment posting. All plans include every feature — pay only for the volume you need.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {aiPlans.map((plan, index) => (
             <div
               key={index}
               className={`relative rounded-2xl overflow-hidden transition-all duration-300 ${
                 plan.highlighted
-                  ? 'md:scale-105 ring-2 ring-[#0b5cff] shadow-2xl'
+                  ? 'lg:scale-105 ring-2 ring-[#1b489b] shadow-2xl'
                   : 'shadow-lg hover:shadow-xl'
               } ${plan.highlighted ? 'bg-gradient-to-br from-blue-50 to-white' : 'bg-white'}`}
             >
               {/* Badge */}
-              {plan.highlighted && (
-                <div className="absolute top-0 right-0 bg-[#0b5cff] text-white px-4 py-1 rounded-bl-lg text-sm font-semibold">
-                  POPULAR
+              {plan.badge && (
+                <div className="absolute top-0 right-0 bg-[#1b489b] text-white px-4 py-1 rounded-bl-lg text-xs font-semibold">
+                  {plan.badge}
                 </div>
               )}
 
               <div className="p-8">
                 {/* Plan Name & Price */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                <div className="mb-2">
-                  <span className="text-5xl font-bold text-[#0b5cff]">{plan.price}</span>
-                  <span className="text-gray-600 ml-2">/{plan.period}</span>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-[#1b489b]">{plan.price}</span>
+                  <span className="text-gray-600 ml-2 text-sm">{plan.period}</span>
                 </div>
 
-                {/* Claims Range */}
-                <p className="text-sm text-gray-600 font-semibold mb-4 pb-4 border-b border-gray-200">
-                  {plan.claims}
-                </p>
+                {/* Volume */}
+                <p className="text-sm font-semibold text-gray-700 mb-2">{plan.volume}</p>
 
                 {/* Description */}
-                <p className="text-gray-700 text-sm mb-6">{plan.description}</p>
+                <p className="text-gray-600 text-sm mb-6 pb-6 border-b border-gray-200">{plan.description}</p>
 
                 {/* CTA Button */}
                 <button
-                  className={`w-full py-3 px-4 rounded-lg font-semibold mb-8 transition-all duration-300 ${
+                  className={`w-full py-2 px-4 rounded-lg font-semibold mb-8 transition-all duration-300 text-sm ${
                     plan.highlighted
-                      ? 'bg-[#0b5cff] text-white hover:bg-[#053eaa]'
+                      ? 'bg-[#1b489b] text-white hover:bg-[#0f2d5f]'
                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                   }`}
                 >
-                  Get Started
+                  {plan.cta}
                 </button>
 
                 {/* Features List */}
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {plan.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start gap-3">
                       <MdCheck className="w-5 h-5 text-[#0b8554] flex-shrink-0 mt-0.5" />
@@ -122,6 +127,13 @@ export default function AIPricingSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Overage Notice */}
+        <div className="max-w-3xl mx-auto bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
+          <p className="text-gray-700 text-sm">
+            <span className="font-semibold">Exceed your monthly limit?</span> We'll notify you — no automatic charges or surprise fees. Upgrade anytime.
+          </p>
         </div>
       </div>
     </section>

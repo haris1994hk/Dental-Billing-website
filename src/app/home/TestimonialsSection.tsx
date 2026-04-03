@@ -83,18 +83,27 @@ export default function TestimonialsSection() {
                     className="flex gap-6 items-start overflow-x-auto pr-2 snap-x snap-mandatory scroll-smooth scrollbar-hide"
                     style={{ scrollBehavior: "smooth", width: 'min(820px,100%)' }}
                   >
-                    {Array.from({ length: 3 }).map((_, idx) => (
-                      <div key={idx} className="flex-none bg-[#14479b] text-white rounded-xl p-4 shadow-md w-[260px] snap-start">
-                        <div className="text-yellow-300 mb-2 text-sm">★★★★★</div>
-                        <p className="text-[11px] leading-snug uppercase">
-                          Dental Billing Aid dramatically reduced the time we spend posting insurance payments and helped us catch underpayments we were missing before.
-                        </p>
-                        <div className="mt-3 text-[10px] opacity-90 font-semibold">
-                          HARIS KHAN<br />
-                          <span className="text-[9px] opacity-80 font-normal">DENTAL BILLING MANAGER, US</span>
-                        </div>
+                    <div className="flex-none bg-[#14479b] text-white rounded-xl p-4 shadow-md w-[260px] snap-start">
+                      <div className="text-yellow-300 mb-2 text-sm">★★★★★</div>
+                      <p className="text-[11px] leading-snug">
+                        Dental Billing Aid freed up over 20 hours a month and stopped my team from wasting time entering checks and reconciling accounts. My team really loves it.
+                      </p>
+                      <div className="mt-3 text-[10px] opacity-90 font-semibold">
+                        DR. CISTERNINO<br />
+                        <span className="text-[9px] opacity-80 font-normal">SPRING LAKE DENTAL, NJ</span>
                       </div>
-                    ))}
+                    </div>
+
+                    <div className="flex-none bg-[#14479b] text-white rounded-xl p-4 shadow-md w-[260px] snap-start">
+                      <div className="text-yellow-300 mb-2 text-sm">★★★★★</div>
+                      <p className="text-[11px] leading-snug">
+                        Dental Billing Aid saved my team over 70 hours in manual data entry last month. It's reduced my outstanding AR by 85%.
+                      </p>
+                      <div className="mt-3 text-[10px] opacity-90 font-semibold">
+                        DR. BAMRAH<br />
+                        <span className="text-[9px] opacity-80 font-normal">H & F DENTAL CARE, OH</span>
+                      </div>
+                    </div>
                   </div>
 
                   {/* custom progress track */}

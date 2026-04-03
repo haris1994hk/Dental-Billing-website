@@ -44,15 +44,14 @@ export default function Footer() {
                 <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M3 8l9 6 9-6" />
                 <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M21 8v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8" />
               </svg>
-              <span>info@dentalbilling.com</span>
-            </div>
+ <a href='mailto:info@dentalbillingaid.com' className=' underline'>info@dentalbillingaid.com</a>            </div>
 
             <div className="flex items-start gap-3 text-white/90 text-sm mt-4 max-w-xs">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white/90 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M12 21s8-4.5 8-10a8 8 0 1 0-16 0c0 5.5 8 10 8 10z" />
                 <circle cx="12" cy="11" r="2" strokeWidth="1.5" />
               </svg>
-              <span>123 Dental Ave, Suite 100, California, USA</span>
+              <span>4498 Main St Suite 4 #1107 Buffalo, NY 14226 United States</span>
             </div>
 
             <div className="mt-6 flex items-center gap-3 justify-start">
@@ -77,7 +76,11 @@ export default function Footer() {
           </div>
         </div>
 
-       
+        <div className="border-t border-white/20 py-2">
+          <p className="text-center text-white/80 text-sm">
+            © 2025 Dental Billing Aid. All Rights Reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

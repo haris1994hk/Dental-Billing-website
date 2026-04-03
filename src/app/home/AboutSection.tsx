@@ -23,8 +23,7 @@ export default function AboutSection() {
             <h3 className="text-3xl font-bold !text-[#1b489b] mb-6">Dental Billing Aid</h3>
 
             <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-              Is a dental revenue automation platform that helps Dental Practices accurately post insurance payments using Artificial Intelligence.
-            </p>
+Dental Billing Aid was built by dental billing professionals who were tired of manual EOB processing slowing practices down. We combined that expertise with AI to create a smarter, faster way to post payments  one that reduces errors, catches underpayments, and gives your team time back.            </p>
 
             <div className="space-y-4">
               <div className="flex gap-4">
