@@ -23,18 +23,43 @@ export default function HowItWorks() {
               content="Upload scanned EOBs, PDFs, or digital remittance files from dental insurance payers."
             />
 
-            <Step
-              number="2"
-              title="Posting-Ready Output"
-              content={
-                <ul className="text-xs list-disc list-inside space-y-1 text-left">
-                  <li>Insurance paid amount</li>
-                  <li>Adjustments & write-offs</li>
-                  <li>Patient responsibility</li>
-                  <li>Denial and remark codes</li>
-                </ul>
-              }
-            />
+            <div className="block lg:hidden">
+              <Step
+                number="2"
+                title="AI Extraction & Validation"
+                content="Our AI reads and structures insurance payment data, validates calculations, and flags inconsistencies."
+              />
+            </div>
+
+            <div className="hidden lg:block">
+              <Step
+                number="2"
+                title="Posting-Ready Output"
+                content={
+                  <ul className="text-xs list-disc list-inside space-y-1 text-left">
+                    <li>Insurance paid amount</li>
+                    <li>Adjustments & write-offs</li>
+                    <li>Patient responsibility</li>
+                    <li>Denial and remark codes</li>
+                  </ul>
+                }
+              />
+            </div>
+
+            <div className="block lg:hidden">
+              <Step
+                number="3"
+                title="Posting-Ready Output"
+                content={
+                  <ul className="text-xs list-disc list-inside space-y-1 text-left">
+                    <li>Insurance paid amount</li>
+                    <li>Adjustments & write-offs</li>
+                    <li>Patient responsibility</li>
+                    <li>Denial and remark codes</li>
+                  </ul>
+                }
+              />
+            </div>
           </div>
           <div className="flex  justify-center">
             <div className="block lg:hidden    ">
@@ -51,11 +76,13 @@ export default function HowItWorks() {
 
           {/* RIGHT */}
           <div className="space-y-10 flex flex-col items-center">
-            <Step
-              number="3"
-              title="AI Extraction & Validation"
-              content="Our AI reads and structures insurance payment data, validates calculations, and flags inconsistencies."
-            />
+            <div className="hidden lg:block">
+              <Step
+                number="3"
+                title="AI Extraction & Validation"
+                content="Our AI reads and structures insurance payment data, validates calculations, and flags inconsistencies."
+              />
+            </div>
 
             <Step
               number="4"

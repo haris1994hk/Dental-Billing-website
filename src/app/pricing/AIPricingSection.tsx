@@ -2,7 +2,7 @@
 
 import { MdCheck } from 'react-icons/md';
 
-export default function AIPricingSection() {
+export default function AIPricingSection({ onContactClick }: { onContactClick?: () => void }) {
   const fullFeatures = [
     'AI EOB & EOP Extraction',
     'Claim Summarization & Parsing',
@@ -106,6 +106,7 @@ export default function AIPricingSection() {
 
                 {/* CTA Button */}
                 <button
+                  onClick={onContactClick}
                   className={`w-full py-2 px-4 rounded-lg font-semibold mb-8 transition-all duration-300 text-sm ${
                     plan.highlighted
                       ? 'bg-[#1b489b] text-white hover:bg-[#0f2d5f]'

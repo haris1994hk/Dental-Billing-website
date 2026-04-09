@@ -1,15 +1,17 @@
+import Link from 'next/link';
+import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+
 export default function Footer() {
   return (
     <footer className="w-full mt-12">
       <div className="bg-[#14479b] text-white rounded-t-3xl">
         <div className="max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 flex items-center justify-center bg-white rounded-lg p-2">
-              <img src="/images/logo.webp" alt="logo" className="w-full h-full object-contain" />
-            </div>
+            <Link href="/" className="flex-shrink-0">
+              <img src="/images/logo.webp" alt="logo" className="w-20 sm:w-24 md:w-28 h-9 sm:h-11 md:h-12" />
+            </Link>
             <div>
-              <div className="text-white text-lg font-bold">Dental Billing Aid</div>
-              <p className="text-white/90 mt-3 text-sm max-w-md leading-relaxed pl-4 border-l-2 border-white/90">
+              <p className="text-white/90 mt-3 text-sm max-w-md leading-relaxed">
                 Dental Billing Aid provides AI-powered dental billing software and services, specializing in EOB payment posting, insurance verification, and revenue cycle support for dental practices across the United States.
               </p>
             </div>
@@ -56,15 +58,11 @@ export default function Footer() {
 
             <div className="mt-6 flex items-center gap-3 justify-start">
               <span className="text-white/90 font-semibold mr-2">FOLLOW US:</span>
-              <a href="https://www.linkedin.com/company/dental-billing-aid/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#1b489b]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.436-.103.25-.129.599-.129.948v5.421h-3.554s.05-8.5 0-9.378h3.554v1.328c.43-.645 1.196-1.565 2.902-1.565 2.12 0 3.71 1.387 3.71 4.369v5.246zM5.337 8.855c-1.144 0-1.915-.762-1.915-1.715 0-.956.77-1.715 1.958-1.715 1.187 0 1.914.759 1.938 1.715 0 .953-.751 1.715-1.981 1.715zm1.946 11.597H3.392V9.074h3.891v11.378zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
-                </svg>
+              <a href="https://www.linkedin.com/company/dental-billing-aid/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-100 bg-white rounded-full w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex items-center justify-center transition font-semibold">
+                <FaLinkedinIn className="text-xs sm:text-sm" />
               </a>
-              <a href="https://www.instagram.com/dentalbillingaid/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#1b489b]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.18A3.82 3.82 0 1 0 15.82 12 3.82 3.82 0 0 0 12 8.18zm4.5-.88a1.12 1.12 0 1 0 1.12 1.12A1.12 1.12 0 0 0 16.5 7.3zM12 9.5A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5z" />
-                </svg>
+              <a href="https://www.instagram.com/dentalbillingaid/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-100 bg-white rounded-full w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex items-center justify-center transition font-semibold">
+                <FaInstagram className="text-xs sm:text-sm" />
               </a>
             </div>
           </div>
