@@ -33,15 +33,22 @@ AI-Powered · HIPAA-Ready · Built for Dental Practices
 Stop manually posting EOBs. Our AI reads, validates, and structures insurance payment data in minutes so your team can focus on patient care, not paperwork.              </p>
 
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
-                <button
-                  onClick={() => setContactModalOpen(true)}
-                  className="bg-white text-blue-600 font-bold py-2 xs:py-2.5 sm:py-3 px-4 xs:px-6 sm:px-8 rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-xs xs:text-sm sm:text-base whitespace-nowrap flex-1 sm:flex-none"
+                <a
+                  href="https://calendly.com/dentalbillingaid/dental-billing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-blue-600 font-bold py-2 xs:py-2.5 sm:py-3 px-4 xs:px-6 sm:px-8 rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-xs xs:text-sm sm:text-base whitespace-nowrap flex-1 sm:flex-none text-center"
                 >
                   Get A Demo
-                </button>
-                <button className="bg-transparent border-2 border-white text-white font-bold py-2 xs:py-2.5 sm:py-3 px-4 xs:px-6 sm:px-8 rounded-lg hover:bg-white/10 transition-all text-xs xs:text-sm sm:text-base flex-1 sm:flex-none">
+                </a>
+                <a
+                  href="https://calendly.com/dentalbillingaid/dental-billing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-transparent border-2 border-white text-white font-bold py-2 xs:py-2.5 sm:py-3 px-4 xs:px-6 sm:px-8 rounded-lg hover:bg-white/10 transition-all text-xs xs:text-sm sm:text-base flex-1 sm:flex-none text-center"
+                >
                   See How The EOB AI Works
-                </button>
+                </a>
               </div>
             </div>
 

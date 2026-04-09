@@ -57,8 +57,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   </div>
                   <div>
                     <h3 className="font-semibold !text-white text-lg mb-1">Call Us</h3>
-                    <a href="tel:+15551234567" className="text-white/90 hover:text-white transition">
-                      +1 (555) 123-4567
+                    <a href="tel:+16478888409" className="text-white/90 hover:text-white transition">
+                      +1 (647) 888-8409
                     </a>
                   </div>
                 </div>

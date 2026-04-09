@@ -24,7 +24,7 @@ export default function HowItWorks() {
             />
 
             <Step
-              number="3"
+              number="2"
               title="Posting-Ready Output"
               content={
                 <ul className="text-xs list-disc list-inside space-y-1 text-left">
@@ -52,7 +52,7 @@ export default function HowItWorks() {
           {/* RIGHT */}
           <div className="space-y-10 flex flex-col items-center">
             <Step
-              number="2"
+              number="3"
               title="AI Extraction & Validation"
               content="Our AI reads and structures insurance payment data, validates calculations, and flags inconsistencies."
             />

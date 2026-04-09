@@ -13,6 +13,43 @@
 .animate-hero-pop {
   animation: hero-pop 1.2s cubic-bezier(0.4,0,0.2,1);
 }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes slideInMenu {
+  0% { 
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% { 
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.animate-slideInMenu {
+  animation: slideInMenu 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes menuItemSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.menu-item-1 { animation: menuItemSlideIn 0.4s ease-out 0.1s both; }
+.menu-item-2 { animation: menuItemSlideIn 0.4s ease-out 0.2s both; }
+.menu-item-3 { animation: menuItemSlideIn 0.4s ease-out 0.3s both; }
+.menu-item-4 { animation: menuItemSlideIn 0.4s ease-out 0.4s both; }
+.menu-item-5 { animation: menuItemSlideIn 0.4s ease-out 0.5s both; }
+.menu-social { animation: menuItemSlideIn 0.4s ease-out 0.7s both; }
+.menu-button { animation: menuItemSlideIn 0.4s ease-out 0.8s both; }
 @import "tailwindcss";
 
 :root {

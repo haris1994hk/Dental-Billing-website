@@ -36,7 +36,7 @@ export default function Footer() {
                 <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5v-13z" />
                 <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M7 8.5h10M7 12h10M7 15.5h6" />
               </svg>
-              <span>+1 (555) 123-4567</span>
+              <span>+1 (647) 888-8409</span>
             </div>
 
             <div className="flex items-center gap-3 text-white/90 text-sm mt-2">
@@ -56,20 +56,14 @@ export default function Footer() {
 
             <div className="mt-6 flex items-center gap-3 justify-start">
               <span className="text-white/90 font-semibold mr-2">FOLLOW US:</span>
-              <a href="#" aria-label="Facebook" className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
+              <a href="https://www.linkedin.com/company/dental-billing-aid/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#1b489b]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 4.99 3.66 9.12 8.44 9.93v-7.03H8.08v-2.9h2.36V9.41c0-2.33 1.39-3.61 3.52-3.61. 99 0 1.84.07 2.09.11v2.42h-1.44c-1.13 0-1.35.54-1.35 1.33v1.75h2.7l-.43 2.9h-2.27v7.03C18.34 21.19 22 17.06 22 12.07z" />
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.436-.103.25-.129.599-.129.948v5.421h-3.554s.05-8.5 0-9.378h3.554v1.328c.43-.645 1.196-1.565 2.902-1.565 2.12 0 3.71 1.387 3.71 4.369v5.246zM5.337 8.855c-1.144 0-1.915-.762-1.915-1.715 0-.956.77-1.715 1.958-1.715 1.187 0 1.914.759 1.938 1.715 0 .953-.751 1.715-1.981 1.715zm1.946 11.597H3.392V9.074h3.891v11.378zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
                 </svg>
               </a>
-              <a href="#" aria-label="Instagram" className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
+              <a href="https://www.instagram.com/dentalbillingaid/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#1b489b]" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.18A3.82 3.82 0 1 0 15.82 12 3.82 3.82 0 0 0 12 8.18zm4.5-.88a1.12 1.12 0 1 0 1.12 1.12A1.12 1.12 0 0 0 16.5 7.3zM12 9.5A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5z" />
-                </svg>
-              </a>
-              <a href="#" aria-label="WhatsApp" className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#1b489b]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.52 3.48A11.9 11.9 0 0 0 12.07.5C6.17.5 1.5 5.18 1.5 11.08c0 1.95.5 3.78 1.45 5.41L.5 22.5l5.75-1.51A10.6 10.6 0 0 0 12.07 22c5.9 0 10.57-4.67 10.57-10.57 0-2.82-1.1-5.46-3.54-7.95zM12.07 20.5c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.41.9.9-3.31-.2-.33A8.2 8.2 0 0 1 3.87 11.1c0-4.55 3.71-8.26 8.2-8.26 4.55 0 8.26 3.71 8.26 8.26 0 4.55-3.71 8.26-8.26 8.26z" />
-                  <path d="M17.1 14.2c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-.9 1.1-.1.2-.2.3.1.6.3.3.7.8 1.3 1.3.6.5 1 1 1.7 1.3.6.3 1 .2 1.4.1.4-.1 1.3-.5 1.5-1.1.2-.5.2-1 .1-1.1-.2-.1-.8-.3-1.1-.5z" />
                 </svg>
               </a>
             </div>

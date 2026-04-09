@@ -2,13 +2,25 @@
 
 import Link from 'next/link';
 import { FiPhone, FiMail, FiMapPin, FiMenu, FiX } from 'react-icons/fi';
-import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import { useState } from 'react';
+import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
 import ContactModal from './ContactModal';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
+
+  // Prevent body scroll when sidebar is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   return (
     <header className="w-full bg-white sticky top-0 z-50">
@@ -16,11 +28,7 @@ export default function Header() {
       <div className="w-full bg-[#1b489b] text-white py-2 sm:py-2.5">
         <div className="max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm">
           <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-6 md:gap-24 lg:gap-46">
-            <a href="tel:+15551234567" className="flex items-center gap-1.5 sm:gap-2.5 hover:text-blue-100 transition">
-              <FiPhone className="text-white text-sm sm:text-lg font-bold flex-shrink-0" />
-              <span className="hidden sm:inline">+1 (555) 123-4567</span>
-              <span className="sm:hidden text-xs">Call</span>
-            </a>
+           
             <a href="mailto:info@dentalbillingaid.com" className="flex items-center gap-1.5 sm:gap-2.5 hover:text-blue-100 transition">
               <FiMail className="text-white text-sm sm:text-lg font-bold flex-shrink-0" />
               <span className="hidden sm:inline">info@dentalbillingaid.com</span>
@@ -28,13 +36,12 @@ export default function Header() {
             </a>
             <span className="flex items-center gap-1.5 sm:gap-2.5 hidden md:flex">
               <FiMapPin className="text-white text-sm sm:text-lg font-bold flex-shrink-0" />
-              <span className="text-xs sm:text-sm">123 Dental Ave, Suite 100, California, USA</span>
+              <span className="text-xs sm:text-sm">4498 Main St Suite 4 #1107, Buffalo, NY 14226, United States</span>
             </span>
           </div>
           <div className="flex gap-2 sm:gap-3">
-            <a href="#" className="hover:text-blue-100 bg-white rounded-full w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaFacebook className="text-xs sm:text-sm" /></a>
-            <a href="#" className="hover:text-blue-100 bg-white rounded-full w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaInstagram className="text-xs sm:text-sm" /></a>
-            <a href="#" className="hover:text-blue-100 bg-white rounded-full w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaWhatsapp className="text-xs sm:text-sm" /></a>
+            <a href="https://www.linkedin.com/company/dental-billing-aid/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-100 bg-white rounded-full w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaLinkedinIn className="text-xs sm:text-sm" /></a>
+            <a href="https://www.instagram.com/dentalbillingaid/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-100 bg-white rounded-full w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaInstagram className="text-xs sm:text-sm" /></a>
           </div>
         </div>
       </div>
@@ -84,31 +91,103 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Mobile/Tablet Menu */}
+          {/* Mobile/Tablet Menu with Slide Animation */}
           {isOpen && (
-            <div className="lg:hidden border-t border-gray-200 bg-white">
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                <Link href="/" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
-                  Home
-                </Link>
-                <Link href="/about" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
-                  About
-                </Link>              <Link href="/services" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
-                Services
-              </Link>                <Link href="/resources" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
-                  Resources
-                </Link>
-                <Link href="/pricing" className="block px-3 py-2 rounded-md text-base font-semibold text-black hover:text-blue-600 hover:bg-gray-50 transition">
-                  Pricing
-                </Link>
-                <button
-                  onClick={() => setContactModalOpen(true)}
-                  className="w-full mt-2 bg-blue-600 text-white px-3 py-2 rounded-full text-base font-semibold hover:bg-blue-700 transition-colors shadow-md"
-                >
-                  Contact Us
-                </button>
+            <>
+              {/* Backdrop Overlay with Animation */}
+              <div 
+                className="fixed inset-0 bg-black/50 lg:hidden z-40 animate-fadeIn"
+                onClick={() => setIsOpen(false)}
+              />
+              
+              {/* Slide-in Sidebar with Smooth Animation */}
+              <div className={`fixed top-0 left-0 h-screen w-64 bg-gradient-to-b from-[#1b489b] to-[#0f2d5f] shadow-2xl z-50 ${
+                isOpen ? 'animate-slideInMenu' : '-translate-x-full'
+              } lg:hidden overflow-y-auto`}>
+                {/* Close Button Inside Sidebar - Animated */}
+                <div className="sticky top-0 flex justify-between items-center p-4 bg-gradient-to-r from-[#1b489b] to-[#0f2d5f] border-b border-white/20 menu-item-1">
+                  <button 
+                    onClick={() => setIsOpen(false)}
+                    className="text-white hover:bg-white/20 rounded-lg p-2 transition transform hover:scale-110 active:scale-95"
+                  >
+                    <FiX size={28} />
+                  </button>
+                </div>
+
+                {/* Menu Items */}
+                <div className="px-4 pt-6 space-y-2 pb-8">
+                  <Link 
+                    href="/" 
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 rounded-lg text-base font-semibold text-white hover:bg-white/20 transition transform hover:translate-x-1 menu-item-1"
+                  >
+                    Home
+                  </Link>
+                  <Link 
+                    href="/about" 
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 rounded-lg text-base font-semibold text-white hover:bg-white/20 transition transform hover:translate-x-1 menu-item-2"
+                  >
+                    About
+                  </Link>
+                  <Link 
+                    href="/services" 
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 rounded-lg text-base font-semibold text-white hover:bg-white/20 transition transform hover:translate-x-1 menu-item-3"
+                  >
+                    Services
+                  </Link>
+                  <Link 
+                    href="/resources" 
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 rounded-lg text-base font-semibold text-white hover:bg-white/20 transition transform hover:translate-x-1 menu-item-4"
+                  >
+                    Resources
+                  </Link>
+                  <Link 
+                    href="/pricing" 
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 rounded-lg text-base font-semibold text-white hover:bg-white/20 transition transform hover:translate-x-1 menu-item-5"
+                  >
+                    Pricing
+                  </Link>
+
+                  {/* Social Links */}
+                  <div className="pt-6 mt-6 border-t border-white/30 menu-social">
+                    <p className="text-white/90 text-sm font-semibold px-4 mb-4">Follow Us</p>
+                    <div className="flex gap-3 px-4">
+                      <a 
+                        href="https://www.linkedin.com/company/dental-billing-aid/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition"
+                      >
+                        <FaLinkedinIn className="text-[#1b489b]" />
+                      </a>
+                      <a 
+                        href="https://www.instagram.com/dentalbillingaid/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition"
+                      >
+                        <FaInstagram className="text-[#1b489b]" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Contact Button */}
+                  <button
+                    onClick={() => {
+                      setContactModalOpen(true);
+                      setIsOpen(false);
+                    }}
+                    className="w-full mt-8 bg-white text-[#1b489b] px-4 py-3 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                  >
+                    Contact Us
+                  </button>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       </nav>
