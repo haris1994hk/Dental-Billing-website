@@ -1,7 +1,121 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+
+interface FormData {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  date: string;
+  time: string;
+  email: string;
+  message: string;
+}
 
 export default function ContactForm() {
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    date: "",
+    time: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    setError(""); // Clear error when user starts typing
+  };
+
+  const validateForm = () => {
+    if (!formData.firstName.trim()) {
+      setError("First name is required");
+      return false;
+    }
+    if (!formData.lastName.trim()) {
+      setError("Last name is required");
+      return false;
+    }
+    if (!formData.phoneNumber.trim()) {
+      setError("Phone number is required");
+      return false;
+    }
+    if (!formData.email.trim()) {
+      setError("Email is required");
+      return false;
+    }
+    if (!formData.email.includes("@")) {
+      setError("Please enter a valid email");
+      return false;
+    }
+    if (!formData.date) {
+      setError("Date is required");
+      return false;
+    }
+    if (!formData.time) {
+      setError("Time is required");
+      return false;
+    }
+    if (!formData.message.trim()) {
+      setError("Message is required");
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          phoneNumber: "",
+          date: "",
+          time: "",
+          email: "",
+          message: "",
+        });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      } else {
+        const data = await response.json();
+        setError(data.error || "Failed to submit form. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again later.");
+      console.error("Form submission error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="max-w-6xl mx-auto mt-20 px-4">
       <div className="bg-[#14479b] text-white rounded-3xl p-8 lg:p-12 shadow-lg">
@@ -13,47 +127,111 @@ export default function ContactForm() {
             <p className="mt-6 text-[30px] lg:text-[27px] text-start text-white/90 max-w-lg">Meet with our billing specialists and see how our AI can reduce errors, increase collections, and save your team hours every week.</p>
           </div>
 
-          <form className="space-y-4 bg-transparent p-2 lg:p-0 text-white">
+          <form className="space-y-4 bg-transparent p-2 lg:p-0 text-white" onSubmit={handleSubmit}>
+            {submitted && (
+              <div className="bg-green-500/20 border border-green-400 text-green-100 px-4 py-3 rounded-lg mb-4">
+                Thank you! We'll contact you soon.
+              </div>
+            )}
+
+            {error && (
+              <div className="bg-red-500/20 border border-red-400 text-red-100 px-4 py-3 rounded-lg mb-4">
+                {error}
+              </div>
+            )}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col items-start w-full">
                 <label className="block text-xs text-white/90 text-left">First Name*</label>
-                <input className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400" />
+                <input 
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400" 
+                  placeholder="John"
+                />
               </div>
               <div className="flex flex-col items-start w-full">
                 <label className="block text-xs text-white/90 text-left">Last Name*</label>
-                <input className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"  />
+                <input 
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"
+                  placeholder="Doe"
+                />
               </div>
             </div>
 
             <div>
               <label className="block text-xs text-white/90 text-left">Phone Number*</label>
-              <input className="mt-1 w-full rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400" />
+              <input 
+                type="tel"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className="mt-1 w-full rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"
+                placeholder="(123) 456-7890"
+              />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
               <div className="flex flex-col items-start w-full">
                 <label className="block text-xs text-white/90 text-left">Date*</label>
-                <input type="date" className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-full sm:w-40" />
+                <input 
+                  type="date" 
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-full sm:w-40" 
+                />
               </div>
               <div className="flex flex-col items-start w-full">
                 <label className="block text-xs text-white/90 text-left">Time*</label>
-                <input type="time" className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-full sm:w-36" />
+                <input 
+                  type="time" 
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-full sm:w-36" 
+                />
               </div>
             </div>
 
             <div>
               <label className="block text-xs text-white/90 text-left">Email*</label>
-              <input className="mt-1 w-full rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"  />
+              <input 
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="mt-1 w-full rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"
+                placeholder="john@example.com"
+              />
             </div>
 
             <div>
               <label className="block text-xs text-white/90 text-left">Message*</label>
-              <textarea className="mt-1 w-full rounded px-3 py-3 bg-white text-black h-28" />
+              <textarea 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="mt-1 w-full rounded px-3 py-3 bg-white text-black h-28"
+                placeholder="Tell us about your practice..."
+              />
             </div>
 
             <div className="flex justify-start">
-              <button type="button" className="bg-white text-[#1b489b] px-6 py-1 rounded-full font-semibold shadow inline-flex items-center gap-3">
-                <span className="text-[18px] sm:text-[20px]">Send</span>
+              <button 
+                type="submit" 
+                disabled={loading}
+                className="bg-white text-[#1b489b] px-6 py-1 rounded-full font-semibold shadow inline-flex items-center gap-3 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <span className="text-[18px] sm:text-[20px]">
+                  {loading ? "Sending..." : "Send"}
+                </span>
                 <span className="w-7 h-7 bg-[#e6eefb] text-[#1b489b] rounded-full flex items-center justify-center">›</span>
               </button>
             </div>

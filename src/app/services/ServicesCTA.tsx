@@ -12,15 +12,26 @@ export default function ServicesCTA() {
             Let Dental Billing Aid handle your billing complexities so you can focus on patient care.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-[#1b489b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+            <a 
+              href="https://calendly.com/dentalbillingaid/dental-billing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-[#1b489b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+            >
               Get Started Today
-            </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1b489b] transition">
+            </a>
+            <a 
+              href="https://calendly.com/dentalbillingaid/dental-billing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1b489b] transition"
+            >
               Schedule a Demo
-            </button>
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
 }
+

@@ -71,10 +71,18 @@
 }
 
 
-body {
+html, body {
   background: #fff;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* Hide scrollbar */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
 
 .container { max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
