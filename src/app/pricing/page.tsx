@@ -95,9 +95,7 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Add-On Professional Services
-            </h2>
+            
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Complement your AI automation with our expert staffing and support services.
             </p>
