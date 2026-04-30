@@ -21,16 +21,17 @@ export default function HeroSection() {
               <div className="inline-block mb-3 mt-7 sm:mt-7 lg:mt-0 sm:mb-6 bg-white !text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/30">
                 <span className="text-xs sm:text-sm font-semibold flex items-center gap-1 sm:gap-2">
                   <span>⚙️</span>
-                  Post Dental Insurance Payments Smarter
+                  HIPAA Ready - Built For Dental Practices
                 </span>
               </div>
 
               <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-6 leading-tight !text-white">
-AI-Powered · HIPAA-Ready · Built for Dental Practices
+                PostEasy AI: The Machine that Deletes Billing Busy-Work.
               </h1>
 
               <p className="text-sm xs:text-base sm:text-lg lg:text-lg text-white mb-4 sm:mb-8 leading-relaxed">
-Stop manually posting EOBs. Our AI reads, validates, and structures insurance payment data in minutes so your team can focus on patient care, not paperwork.              </p>
+                Stop letting manual posting slow your growth. PostEasy AI identifies billing leaks in seconds that take humans 45 minutes to find. Built by Dental Billing Aid for high-volume US clinics.
+              </p>
 
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
                 <a

@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const ownerEmail = process.env.OWNER_EMAIL || 'info@dentalbillingaid.com';
+    const ownerEmail = process.env.OWNER_EMAIL || 'haris@dentalbillingaid.com';
     
     // Prepare email content for owner
     const ownerEmailBody = `

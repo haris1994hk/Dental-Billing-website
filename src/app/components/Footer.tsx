@@ -46,7 +46,7 @@ export default function Footer() {
                 <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M3 8l9 6 9-6" />
                 <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M21 8v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8" />
               </svg>
- <a href='mailto:info@dentalbillingaid.com' className=' underline'>info@dentalbillingaid.com</a>            </div>
+ <a href='mailto:haris@dentalbillingaid.com' className=' underline'>haris@dentalbillingaid.com</a>            </div>
 
             <div className="flex items-start gap-3 text-white/90 text-sm mt-4 max-w-xs">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white/90 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">

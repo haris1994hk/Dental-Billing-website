@@ -70,8 +70,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   </div>
                   <div>
                     <h3 className="font-semibold !text-white text-lg mb-1">Email</h3>
-                    <a href="mailto:info@dentalbillingaid.com" className="text-white/90 hover:text-white transition">
-                      info@dentalbillingaid.com
+                    <a href="mailto:haris@dentalbillingaid.com" className="text-white/90 hover:text-white transition">
+                      haris@dentalbillingaid.com
                     </a>
                   </div>
                 </div>

@@ -29,9 +29,9 @@ export default function Header() {
         <div className="max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm">
           <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-6 md:gap-24 lg:gap-46">
            
-            <a href="mailto:info@dentalbillingaid.com" className="flex items-center gap-1.5 sm:gap-2.5 hover:text-blue-100 transition">
+            <a href="mailto:haris@dentalbillingaid.com" className="flex items-center gap-1.5 sm:gap-2.5 hover:text-blue-100 transition">
               <FiMail className="text-white text-sm sm:text-lg font-bold flex-shrink-0" />
-              <span className="hidden sm:inline">info@dentalbillingaid.com</span>
+              <span className="hidden sm:inline">haris@dentalbillingaid.com</span>
               <span className="sm:hidden text-xs">Email</span>
             </a>
             <span className="flex items-center gap-1.5 sm:gap-2.5 hidden md:flex">
