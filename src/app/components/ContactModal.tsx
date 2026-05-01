@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Phone, Mail, MapPin } from 'lucide-react';
 
 interface ContactModalProps {
@@ -14,6 +14,21 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     email: '',
     message: '',
   });
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -21,20 +36,72 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       ...prev,
       [name]: value,
     }));
+    if (error) setError('');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', message: '' });
-    onClose();
+    
+    if (!formData.name.trim()) {
+      setError('Please enter your name');
+      return;
+    }
+    if (!formData.email.trim()) {
+      setError('Please enter your email');
+      return;
+    }
+    if (!formData.email.includes('@')) {
+      setError('Please enter a valid email');
+      return;
+    }
+    if (!formData.message.trim()) {
+      setError('Please enter a message');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Send to contact API via simple message submission
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.name.split(' ')[0],
+          lastName: formData.name.split(' ').slice(1).join(' ') || 'Inquiry',
+          email: formData.email,
+          message: formData.message,
+          phoneNumber: 'From modal',
+          date: new Date().toISOString().split('T')[0],
+          time: new Date().toTimeString().split(' ')[0],
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        
+        setTimeout(() => {
+          setSubmitted(false);
+          onClose();
+        }, 4000);
+      } else {
+        const data = await response.json();
+        setError(data.error || 'Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again later.');
+      console.error('Form submission error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 flex items-center justify-center z-50 p-4 bg-black/50 backdrop-blur-sm">
       <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="grid md:grid-cols-2 gap-0">
           {/* Left - Contact Info */}
@@ -110,13 +177,28 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <X className="w-6 h-6 text-gray-600" />
             </button>
 
-            <h3 className="text-2xl font-bold text-black mb-6">Send us a Message</h3>
+            <h3 className="text-2xl font-bold text-black mb-2">Send us a Message</h3>
+            <p className="text-sm text-gray-600 mb-6">We'll get back to you as soon as possible.</p>
+
+            {submitted && (
+              <div className="bg-green-50 border-2 border-green-400 text-green-800 px-5 py-4 rounded-lg mb-6">
+                <div className="font-semibold mb-1">✓ Message Sent Successfully!</div>
+                <p className="text-sm">We've received your message and a confirmation has been sent to <span className="font-semibold">{formData.email}</span>. Our team will contact you shortly.</p>
+              </div>
+            )}
+
+            {error && (
+              <div className="bg-red-50 border-2 border-red-400 text-red-800 px-5 py-4 rounded-lg mb-6">
+                <div className="font-semibold mb-1">⚠ Error</div>
+                <p className="text-sm">{error}</p>
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Full Name
+                  Full Name *
                 </label>
                 <input
                   type="text"
@@ -125,15 +207,15 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b489b] text-gray-900 placeholder-gray-500"
+                  disabled={loading || submitted}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b489b] text-gray-900 placeholder-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
                 />
               </div>
 
               {/* Email Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address
+                  Email Address *
                 </label>
                 <input
                   type="email"
@@ -142,15 +224,15 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@dentalpractice.com"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b489b] text-gray-900 placeholder-gray-500"
+                  disabled={loading || submitted}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b489b] text-gray-900 placeholder-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
                 />
               </div>
 
               {/* Message Field */}
               <div>
                 <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Message
+                  Message *
                 </label>
                 <textarea
                   id="message"
@@ -158,18 +240,29 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your needs or ask a question..."
-                  required
+                  disabled={loading || submitted}
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b489b] text-gray-900 placeholder-gray-500 resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b489b] text-gray-900 placeholder-gray-500 resize-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                 />
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#1b489b] text-white py-3 rounded-lg font-semibold hover:bg-[#0f2d5f] transition mt-6"
+                disabled={loading || submitted}
+                className="w-full bg-[#1b489b] text-white py-3 rounded-lg font-semibold hover:bg-[#0f2d5f] transition mt-6 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                Send Message
+                {loading ? (
+                  <>
+                    <span className="inline-block animate-spin">⟳</span> Sending...
+                  </>
+                ) : submitted ? (
+                  <>
+                    ✓ Sent!
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
 
               <p className="text-xs text-gray-600 text-center mt-4">

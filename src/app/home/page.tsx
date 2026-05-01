@@ -6,6 +6,7 @@ import ServicesSection from './ServicesSection';
 import HowItWorks from './HowItWorks';
 import ContactForm from '../components/ContactForm';
 import DemoVideo from './DemoVideo';
+import StepByStepFlow from './StepByStepFlow';
 import WhoWeServe from './WhoWeServe';
 import TestimonialsSection from './TestimonialsSection';
 import SubscribeSection from './SubscribeSection';
@@ -28,6 +29,9 @@ export default function HomePage() {
       </ScrollAnimatedSection>
       <ScrollAnimatedSection animation="fadeInUp">
         <DemoVideo />
+      </ScrollAnimatedSection>
+      <ScrollAnimatedSection animation="fadeInUp">
+        <StepByStepFlow />
       </ScrollAnimatedSection>
       <ScrollAnimatedSection animation="fadeInUp">
         <ContactForm />

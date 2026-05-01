@@ -122,21 +122,23 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <div>
             <h3 className="text-3xl text-start !text-white sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight uppercase">
-              SCHEDULE<br />YOUR FREE<br />CONSULTATION!
+              REDUCE ERRORS,<br />INCREASE<br />COLLECTIONS!
             </h3>
             <p className="mt-6 text-[30px] lg:text-[27px] text-start text-white/90 max-w-lg">Meet with our billing specialists and see how our AI can reduce errors, increase collections, and save your team hours every week.</p>
           </div>
 
           <form className="space-y-4 bg-transparent p-2 lg:p-0 text-white" onSubmit={handleSubmit}>
             {submitted && (
-              <div className="bg-green-500/20 border border-green-400 text-green-100 px-4 py-3 rounded-lg mb-4">
-                Thank you! We'll contact you soon.
+              <div className="bg-green-500/20 border-2 border-green-400 text-green-100 px-5 py-4 rounded-lg mb-4 backdrop-blur-sm">
+                <div className="font-semibold text-base mb-1">✓ Message Sent Successfully!</div>
+                <div className="text-sm text-green-100/90">We've received your request. A confirmation email has been sent to <span className="font-semibold">{formData.email}</span>, and our team will contact you shortly at <span className="font-semibold">{formData.phoneNumber}</span>.</div>
               </div>
             )}
 
             {error && (
-              <div className="bg-red-500/20 border border-red-400 text-red-100 px-4 py-3 rounded-lg mb-4">
-                {error}
+              <div className="bg-red-500/20 border-2 border-red-400 text-red-100 px-5 py-4 rounded-lg mb-4 backdrop-blur-sm">
+                <div className="font-semibold text-base mb-1">⚠ Error</div>
+                <div className="text-sm">{error}</div>
               </div>
             )}
 
@@ -223,16 +225,17 @@ export default function ContactForm() {
               />
             </div>
 
-            <div className="flex justify-start">
+            <div className="flex justify-start pt-2">
               <button 
                 type="submit" 
-                disabled={loading}
-                className="bg-white text-[#1b489b] px-6 py-1 rounded-full font-semibold shadow inline-flex items-center gap-3 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={loading || submitted}
+                className="bg-white text-[#1b489b] px-8 py-3 rounded-lg font-bold shadow-lg inline-flex items-center gap-3 hover:bg-gray-100 transition disabled:opacity-60 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
               >
-                <span className="text-[18px] sm:text-[20px]">
-                  {loading ? "Sending..." : "Send"}
+                <span className="text-base">
+                  {loading ? "Sending..." : submitted ? "Sent!" : "Send Message"}
                 </span>
-                <span className="w-7 h-7 bg-[#e6eefb] text-[#1b489b] rounded-full flex items-center justify-center">›</span>
+                {!loading && <span className="text-xl">→</span>}
+                {loading && <span className="inline-block animate-spin">⟳</span>}
               </button>
             </div>
           </form>

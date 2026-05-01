@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 interface ContactFormData {
   firstName: string;
@@ -24,56 +25,70 @@ export async function POST(request: NextRequest) {
 
     const ownerEmail = process.env.OWNER_EMAIL || 'haris@dentalbillingaid.com';
     
+    // Create a transporter using SMTP
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port: parseInt(process.env.SMTP_PORT || '587'),
+      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
+      },
+    });
+
     // Prepare email content for owner
-    const ownerEmailBody = `
-      New Contact Form Submission
-      
-      Name: ${data.firstName} ${data.lastName}
-      Email: ${data.email}
-      Phone: ${data.phoneNumber}
-      Preferred Date: ${data.date}
-      Preferred Time: ${data.time}
-      Message: ${data.message}
-    `;
+    const ownerEmailOptions = {
+      from: process.env.SMTP_USER,
+      to: ownerEmail,
+      subject: `New Contact Form Submission from ${data.firstName} ${data.lastName}`,
+      text: `
+        New Contact Form Submission
+        
+        Name: ${data.firstName} ${data.lastName}
+        Email: ${data.email}
+        Phone: ${data.phoneNumber}
+        Preferred Date: ${data.date}
+        Preferred Time: ${data.time}
+        Message: ${data.message}
+      `,
+    };
 
     // Prepare email content for customer
-    const customerEmailBody = `
-      Thank you for reaching out!
-      
-      Hi ${data.firstName},
-      
-      We've received your consultation request and will get back to you shortly.
-      
-      Here's what we received:
-      Name: ${data.firstName} ${data.lastName}
-      Phone: ${data.phoneNumber}
-      Preferred Date & Time: ${data.date} at ${data.time}
-      
-      Our team will contact you soon to confirm your consultation.
-      
-      Best regards,
-      Dental Billing Aid Team
-    `;
+    const customerEmailOptions = {
+      from: process.env.SMTP_USER,
+      to: data.email,
+      subject: 'Consultation Request Received - Dental Billing Aid',
+      text: `
+        Thank you for reaching out!
+        
+        Hi ${data.firstName},
+        
+        We've received your consultation request and will get back to you shortly.
+        
+        Here's what we received:
+        Name: ${data.firstName} ${data.lastName}
+        Phone: ${data.phoneNumber}
+        Preferred Date & Time: ${data.date} at ${data.time}
+        
+        Our team will contact you soon to confirm your consultation.
+        
+        Best regards,
+        Dental Billing Aid Team
+      `,
+    };
 
-    // If using an external service like SendGrid, Mailgun, etc., configure here
-    // For now, this just logs and returns success - configure SMTP service separately
+    // Send emails if SMTP is configured
+    if (process.env.SMTP_USER && process.env.SMTP_PASSWORD) {
+      await transporter.sendMail(ownerEmailOptions);
+      await transporter.sendMail(customerEmailOptions);
+    } else {
+      console.log('SMTP not configured. Form data:', data);
+    }
     
-    // Log the form data (in production, integrate with your email service)
-    console.log('Contact Form Submission:', data);
-    
-    // You can integrate with your email service here:
-    // Option 1: Use SendGrid API
-    // Option 2: Use Mailgun API
-    // Option 3: Use Nodemailer with your SMTP server
-    // Option 4: Use AWS SES
-
     return NextResponse.json(
       { 
         message: 'Form submitted successfully. We will contact you soon.',
         success: true,
-        data: {
-          recipient: ownerEmail
-        }
       },
       { status: 200 }
     );

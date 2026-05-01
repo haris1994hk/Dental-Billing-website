@@ -82,13 +82,23 @@ export default function Header() {
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
 
-            {/* Desktop CTA Button */}
-            <button
-              onClick={() => setContactModalOpen(true)}
-              className="hidden sm:block bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg flex-shrink-0"
-            >
-              Contact Us
-            </button>
+            {/* Desktop CTA Buttons */}
+            <div className="hidden sm:flex items-center gap-3 sm:gap-4">
+              <a
+                href="https://posteasy.dentalbillingaid.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-transparent border-2 border-blue-600 text-blue-600 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:bg-blue-50 transition-colors flex-shrink-0"
+              >
+                Sign In
+              </a>
+              <button
+                onClick={() => setContactModalOpen(true)}
+                className="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg flex-shrink-0"
+              >
+                Contact Us
+              </button>
+            </div>
           </div>
 
           {/* Mobile/Tablet Menu with Slide Animation */}
@@ -175,13 +185,21 @@ export default function Header() {
                     </div>
                   </div>
 
-                  {/* Contact Button */}
+                  {/* Contact and Sign In Buttons */}
+                  <a
+                    href="https://posteasy.dentalbillingaid.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-blue-600 text-white px-4 py-3 rounded-full text-base font-semibold hover:bg-blue-700 transition-colors shadow-lg text-center mb-3"
+                  >
+                    Sign In
+                  </a>
                   <button
                     onClick={() => {
                       setContactModalOpen(true);
                       setIsOpen(false);
                     }}
-                    className="w-full mt-8 bg-white text-[#1b489b] px-4 py-3 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                    className="w-full bg-white text-[#1b489b] px-4 py-3 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors shadow-lg"
                   >
                     Contact Us
                   </button>

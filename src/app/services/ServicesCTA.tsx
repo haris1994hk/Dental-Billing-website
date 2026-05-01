@@ -13,7 +13,7 @@ export default function ServicesCTA() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="https://calendly.com/dentalbillingaid/dental-billing"
+              href="https://calendly.com/haris-1994-hk/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-[#1b489b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
@@ -21,7 +21,7 @@ export default function ServicesCTA() {
               Get Started Today
             </a>
             <a 
-              href="https://calendly.com/dentalbillingaid/dental-billing"
+              href="https://calendly.com/haris-1994-hk/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1b489b] transition"
