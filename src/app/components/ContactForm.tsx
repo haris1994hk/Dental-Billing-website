@@ -117,17 +117,19 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto mt-20 px-4">
-      <div className="bg-[#01162E] text-white rounded-3xl p-8 lg:p-12 shadow-lg">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <div className="w-full max-w-6xl mx-auto mt-12 sm:mt-16 lg:mt-20 px-0 sm:px-4">
+      <div className="bg-[#01162E] text-white rounded-3xl p-5 sm:p-6 lg:p-12 shadow-lg w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start w-full">
           <div>
-            <h3 className="text-3xl text-start !text-white sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight uppercase">
+            <h3 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-start !text-white font-extrabold leading-tight tracking-tight uppercase">
               REDUCE ERRORS,<br />INCREASE<br />COLLECTIONS!
             </h3>
-            <p className="mt-6 text-[30px] lg:text-[27px] text-start text-white/90 max-w-lg">Meet with our billing specialists and see how our AI can reduce errors, increase collections, and save your team hours every week.</p>
+            <p className="mt-4 sm:mt-6 text-base sm:text-xl lg:text-[27px] text-start text-white/90 max-w-lg">
+              Meet with our billing specialists and see how our AI can reduce errors, increase collections, and save your team hours every week.
+            </p>
           </div>
 
-          <form className="space-y-4 bg-transparent p-2 lg:p-0 text-white" onSubmit={handleSubmit}>
+          <form className="space-y-4 bg-transparent p-0 sm:p-1 lg:p-0 text-white w-full" onSubmit={handleSubmit}>
             {submitted && (
               <div className="bg-green-500/20 border-2 border-green-400 text-green-100 px-5 py-4 rounded-lg mb-4 backdrop-blur-sm">
                 <div className="font-semibold text-base mb-1">✓ Message Sent Successfully!</div>
@@ -150,7 +152,7 @@ export default function ContactForm() {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400" 
+                  className="mt-1 w-full rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400"
                   placeholder="John"
                 />
               </div>
@@ -161,7 +163,7 @@ export default function ContactForm() {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400"
+                  className="mt-1 w-full rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400"
                   placeholder="Doe"
                 />
               </div>
@@ -187,7 +189,7 @@ export default function ContactForm() {
                   name="date"
                   value={formData.date}
                   onChange={handleChange}
-                  className="mt-1 rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400 w-full sm:w-40" 
+                  className="mt-1 rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400 w-full"
                 />
               </div>
               <div className="flex flex-col items-start w-full">
@@ -197,7 +199,7 @@ export default function ContactForm() {
                   name="time"
                   value={formData.time}
                   onChange={handleChange}
-                  className="mt-1 rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400 w-full sm:w-36" 
+                  className="mt-1 rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400 w-full"
                 />
               </div>
             </div>
@@ -229,7 +231,7 @@ export default function ContactForm() {
               <button 
                 type="submit" 
                 disabled={loading || submitted}
-                className="bg-white text-[#1b489b] px-8 py-3 rounded-lg font-bold shadow-lg inline-flex items-center gap-3 hover:bg-gray-100 transition disabled:opacity-60 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
+                className="w-full sm:w-auto bg-white text-[#1b489b] px-8 py-3 rounded-lg font-bold shadow-lg inline-flex items-center justify-center gap-3 hover:bg-gray-100 transition disabled:opacity-60 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
               >
                 <span className="text-base">
                   {loading ? "Sending..." : submitted ? "Sent!" : "Send Message"}

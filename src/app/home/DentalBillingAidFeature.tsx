@@ -134,15 +134,15 @@ export default function DentalBillingAidFeature() {
             </div>
 
             {/* CTA Button */}
-            <div className="mt-10 flex gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 w-full max-w-xl">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-blue-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
               >
                 <span>Get Started Today</span>
                 <span>→</span>
               </a>
-              <button className="inline-flex items-center gap-2 bg-white text-blue-600 font-semibold py-3 px-8 rounded-full border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300">
+              <button className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-white text-blue-600 font-semibold py-3 px-8 rounded-full border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300">
                 <span>Learn More</span>
               </button>
             </div>

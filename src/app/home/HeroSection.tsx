@@ -41,12 +41,12 @@ export default function HeroSection() {
                 Identify billing leaks in seconds. Our futuristic AI engine processes EOBs with precision, cutting manual work by 90% for high-volume US clinics.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-xl">
                 <a
                   href="https://calendly.com/haris-1994-hk/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#010b1a]0 text-white font-bold py-4 px-8 rounded-xl hover:bg-[#010b1a]0 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.4)] text-center"
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-[#010b1a]0 text-white font-bold py-4 px-6 sm:px-8 rounded-xl hover:bg-[#010b1a]0 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.4)] text-center"
                 >
                   Get A Demo
                 </a>
@@ -54,7 +54,7 @@ export default function HeroSection() {
                   href="https://calendly.com/haris-1994-hk/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#010b1a]/5 border border-white/10 backdrop-blur-md text-white font-bold py-4 px-8 rounded-xl hover:bg-[#010b1a]/10 transition-all text-center"
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-[#010b1a]/5 border border-white/10 backdrop-blur-md text-white font-bold py-4 px-6 sm:px-8 rounded-xl hover:bg-[#010b1a]/10 transition-all text-center"
                 >
                   See AI In Action
                 </a>
