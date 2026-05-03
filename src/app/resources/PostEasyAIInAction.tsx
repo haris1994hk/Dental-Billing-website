@@ -25,7 +25,7 @@ export default function PostEasyAIInAction() {
     <section className="w-full">
       <div className="relative left-1/2 right-1/2 w-screen -translate-x-1/2  border-b-4 border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-black mb-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#01162E] mb-4 text-center">
             PostEasy AI <span className="text-[#1b489b]">in Action</span>
           </h2>
           <p className="text-gray-600 text-center text-lg mb-12 max-w-2xl mx-auto">
@@ -52,8 +52,8 @@ export default function PostEasyAIInAction() {
 
                 {/* Author */}
                 <div className="border-t border-gray-200 pt-4">
-                  <p className="font-semibold text-black">{testimonial.author}</p>
-                  <p className="text-gray-600 text-sm">{testimonial.practice}</p>
+                  <p className="font-semibold text-[#01162E]">{testimonial.author}</p>
+                  <p className="text-gray-500 text-sm">{testimonial.practice}</p>
                 </div>
               </div>
             ))}
@@ -63,7 +63,7 @@ export default function PostEasyAIInAction() {
           <div className="text-center">
             <button
               onClick={() => setContactModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-[#1b489b] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#0f2d5f] transition text-lg"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-500 hover:to-purple-500 transition text-lg shadow-md"
             >
               Book a Free Demo
               <span>→</span>
@@ -76,3 +76,7 @@ export default function PostEasyAIInAction() {
     </section>
   );
 }
+
+
+
+

@@ -34,10 +34,10 @@ export default function GuidesAndEducation() {
     <section className="w-full">
       <div className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 bg-[#f8f9fa] border-b-4 border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-black mb-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 text-center">
             Guides & <span className="text-[#1b489b]">Education</span>
           </h2>
-          <p className="text-gray-600 text-center text-lg mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-center text-lg mb-12 max-w-2xl mx-auto">
             Expert resources to improve your billing operations
           </p>
 
@@ -50,10 +50,10 @@ export default function GuidesAndEducation() {
                 <div className="flex items-start gap-4">
                   <BookOpen className="w-6 h-6 text-[#1b489b] flex-shrink-0 mt-1" />
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-black mb-2">
+                    <h3 className="text-lg font-semibold text-white mb-2">
                       {guide.title}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-3">
+                    <p className="text-gray-400 text-sm mb-3">
                       {guide.description}
                     </p>
                     <button className="inline-flex items-center gap-2 text-[#1b489b] font-semibold hover:text-[#0f2d5f] transition">
@@ -70,3 +70,7 @@ export default function GuidesAndEducation() {
     </section>
   );
 }
+
+
+
+

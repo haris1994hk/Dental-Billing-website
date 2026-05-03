@@ -1,8 +1,8 @@
 'use client';
 
 import HeroSection from './HeroSection';
-import AboutSection from './AboutSection';
-import ServicesSection from './ServicesSection';
+import DentalBillingAidFeature from './DentalBillingAidFeature';
+import OurServicesSection from './OurServicesSection';
 import HowItWorks from './HowItWorks';
 import ContactForm from '../components/ContactForm';
 import DemoVideo from './DemoVideo';
@@ -18,37 +18,42 @@ export default function HomePage() {
   return (
     <div className="w-full bg-white">
       <HeroSection />
-      <ScrollAnimatedSection animation="fadeInUp">
-        <AboutSection />
-      </ScrollAnimatedSection>
-      <ScrollAnimatedSection animation="fadeInUp">
-        <ServicesSection />
-      </ScrollAnimatedSection>
-      <ScrollAnimatedSection animation="fadeInUp">
-        <HowItWorks />
-      </ScrollAnimatedSection>
-      <ScrollAnimatedSection animation="fadeInUp">
-        <DemoVideo />
-      </ScrollAnimatedSection>
-      <ScrollAnimatedSection animation="fadeInUp">
-        <StepByStepFlow />
-      </ScrollAnimatedSection>
-      <ScrollAnimatedSection animation="fadeInUp">
-        <ContactForm />
-      </ScrollAnimatedSection>
-      <ScrollAnimatedSection animation="fadeInUp">
-        <WhoWeServe />
-      </ScrollAnimatedSection>
-      <ScrollAnimatedSection animation="fadeInUp">
-        <TestimonialsSection />
-      </ScrollAnimatedSection>
-      <ScrollAnimatedSection animation="fadeInUp">
-        <FaqSection />
-      </ScrollAnimatedSection>
-      <ScrollAnimatedSection animation="fadeInUp">
-        <SubscribeSection />
-      </ScrollAnimatedSection>
-
+      <DentalBillingAidFeature />
+      <OurServicesSection />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      
+        <ScrollAnimatedSection animation="fadeInUp">
+          <HowItWorks />
+        </ScrollAnimatedSection>
+        <ScrollAnimatedSection animation="fadeInUp">
+          <DemoVideo />
+        </ScrollAnimatedSection>
+        <ScrollAnimatedSection animation="fadeInUp">
+          <StepByStepFlow />
+        </ScrollAnimatedSection>
+        <ScrollAnimatedSection animation="fadeInUp">
+          <div className="bg-white rounded-3xl p-8 border border-blue-100 my-20">
+            <ContactForm />
+          </div>
+        </ScrollAnimatedSection>
+        <ScrollAnimatedSection animation="fadeInUp">
+          <WhoWeServe />
+        </ScrollAnimatedSection>
+        <ScrollAnimatedSection animation="fadeInUp">
+          <TestimonialsSection />
+        </ScrollAnimatedSection>
+        <ScrollAnimatedSection animation="fadeInUp">
+          <FaqSection />
+        </ScrollAnimatedSection>
+        <ScrollAnimatedSection animation="fadeInUp">
+          <SubscribeSection />
+        </ScrollAnimatedSection>
+      </div>
     </div>
   );
 }
+
+
+
+

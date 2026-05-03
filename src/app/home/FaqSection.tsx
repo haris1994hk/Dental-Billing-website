@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { ScrollAnimatedItem } from "../components/ScrollAnimatedSection";
 
 const FAQ_ITEMS = [
   {
@@ -25,48 +24,95 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="w-full bg-white py-16">
-      <div className="max-w-6xl mx-auto px-4 text-center">
-        <h3 className="text-3xl !text-black font-extrabold">GOT QUESTIONS?</h3>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1b489b] mt-2">WE'VE GOT ANSWERS</h2>
-        <p className="text-sm text-gray-600 mt-4 mx-auto max-w-2xl">Everything you need to know about our AI Tool, pricing or integration and services.</p>
+    <section className="w-full py-20 relative overflow-hidden">
+      <style>{`
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideDown { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 500px; } }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-slide-down { animation: slideDown 0.4s ease-out; }
+      `}</style>
 
-        <div className="mt-10 space-y-6">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
+      
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl -mr-48 -mt-48 animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-100/20 rounded-full blur-3xl -ml-40 -mb-40 animate-pulse" style={{animationDelay: '1s'}}></div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16 animate-fade-in-up">
+          <p className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2">FREQUENTLY ASKED QUESTIONS</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Got Questions?</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">Everything you need to know about our AI tool, pricing, integration, and services.</p>
+          <div className="flex justify-center gap-2 mt-6">
+            <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
+          </div>
+        </div>
+
+        {/* FAQ Items */}
+        <div className="space-y-4">
           {FAQ_ITEMS.map((item, idx) => {
             const open = openIndex === idx;
             return (
-              <ScrollAnimatedItem key={idx} index={idx} animation="fadeInUp">
-                <div className="px-4">
-                {/* Outer rounded border to match design */}
-                <div className="rounded-xl border border-transparent shadow-sm overflow-hidden">
-                  {/* inner light-blue panel with dark-blue left stripe underneath */}
-                  <div className="relative bg-[#dff0ff] rounded-lg p-0">
-                    <div className="absolute left-3 top-3 bottom-3 w-3 bg-[#1b489b] rounded-r-xl z-0" />
-
-                    <button
-                      onClick={() => setOpenIndex(open ? null : idx)}
-                      className="w-full flex items-center justify-between p-4 sm:p-6 pr-6 sm:pr-8 text-left relative z-10"
-                      aria-expanded={open}
+              <div 
+                key={idx}
+                className="animate-fade-in-up"
+                style={{animationDelay: `${0.1 + idx * 0.08}s`}}
+              >
+                <div className="rounded-xl border border-gray-200 overflow-hidden hover:border-blue-300 transition-all duration-300 shadow-sm hover:shadow-md">
+                  <button
+                    onClick={() => setOpenIndex(open ? null : idx)}
+                    className="w-full flex items-center justify-between p-6 bg-white hover:bg-blue-50/50 transition-colors duration-300 text-left group"
+                    aria-expanded={open}
+                  >
+                    <div className="flex items-center gap-4 flex-1">
+                      <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm flex-shrink-0 group-hover:bg-blue-700 transition-colors">
+                        {idx + 1}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        {item.q}
+                      </h3>
+                    </div>
+                    <svg 
+                      className={`w-6 h-6 text-blue-600 transform transition-transform duration-300 flex-shrink-0 ml-4 ${open ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <div className="pl-5 sm:pl-6">
-                        <div className="font-semibold text-[#0f2b57] text-sm sm:text-base">{item.q}</div>
-                        {open && <div className="mt-3 text-sm text-[#23324a] max-w-3xl">{item.a}</div>}
-                      </div>
-
-                      <div className={`w-9 h-9 rounded-full flex items-center justify-center bg-white shadow ml-4 transform transition-transform ${open ? "rotate-180" : ""}`}>
-                        <svg className="w-4 h-4 text-[#1b489b]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M6 9l6 6 6-6" stroke="#1b489b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                    </button>
-                  </div>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </button>
+                  
+                  {open && (
+                    <div className="animate-slide-down px-6 pb-6 bg-gradient-to-br from-blue-50/50 to-transparent border-t border-gray-100">
+                      <p className="text-gray-700 leading-relaxed">
+                        {item.a}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
-              </ScrollAnimatedItem>
             );
           })}
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 text-center animate-fade-in-up" style={{animationDelay: '0.5s'}}>
+          <p className="text-gray-600 mb-4">Still have questions?</p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95"
+          >
+            <span>Get in Touch</span>
+            <span>→</span>
+          </a>
         </div>
       </div>
     </section>
   );
 }
+
+
+
+

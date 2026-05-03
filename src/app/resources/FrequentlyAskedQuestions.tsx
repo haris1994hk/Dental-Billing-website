@@ -29,10 +29,10 @@ export default function FrequentlyAskedQuestions() {
     <section className="w-full">
       <div className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 bg-[#f8f9fa] border-b-4 border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-black mb-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 text-center">
             Frequently Asked <span className="text-[#1b489b]">Questions</span>
           </h2>
-          <p className="text-gray-600 text-center text-lg mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-center text-lg mb-12 max-w-2xl mx-auto">
             Get answers to common billing questions
           </p>
 
@@ -46,7 +46,7 @@ export default function FrequentlyAskedQuestions() {
                   onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
                   className="w-full px-6 py-4 flex items-center justify-between hover:bg-[#eef3fb] transition"
                 >
-                  <span className="font-semibold text-black text-left">
+                  <span className="font-semibold text-white text-left">
                     {faq.question}
                   </span>
                   <ChevronDown
@@ -57,7 +57,7 @@ export default function FrequentlyAskedQuestions() {
                 </button>
                 {openIndex === index && (
                   <div className="px-6 py-4 border-t-2 border-[#1b489b] bg-[#f8f9fa]">
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-gray-300 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -70,3 +70,7 @@ export default function FrequentlyAskedQuestions() {
     </section>
   );
 }
+
+
+
+

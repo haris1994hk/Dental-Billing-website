@@ -64,7 +64,7 @@ export default function AIPricingSection({ onContactClick }: { onContactClick?: 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-[#01162E] mb-4">
             PostEasy AI — Payment Posting Plans
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -79,27 +79,27 @@ export default function AIPricingSection({ onContactClick }: { onContactClick?: 
               key={index}
               className={`relative rounded-2xl overflow-hidden transition-all duration-300 ${
                 plan.highlighted
-                  ? 'lg:scale-105 ring-2 ring-[#1b489b] shadow-2xl'
-                  : 'shadow-lg hover:shadow-xl'
-              } ${plan.highlighted ? 'bg-gradient-to-br from-blue-50 to-white' : 'bg-white'}`}
+                  ? 'lg:scale-105 ring-2 ring-[#1b489b] shadow-2xl bg-gradient-to-br from-blue-50 to-white'
+                  : 'shadow-lg hover:shadow-xl bg-white'
+              } border border-blue-100`}
             >
               {/* Badge */}
               {plan.badge && (
-                <div className="absolute top-0 right-0 bg-[#1b489b] text-white px-4 py-1 rounded-bl-lg text-xs font-semibold">
+                <div className="absolute top-0 right-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-bl-lg text-xs font-semibold">
                   {plan.badge}
                 </div>
               )}
 
               <div className="p-8">
                 {/* Plan Name & Price */}
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                <h3 className="text-xl font-bold text-[#01162E] mb-2">{plan.name}</h3>
                 <div className="mb-4">
                   <span className="text-4xl font-bold text-[#1b489b]">{plan.price}</span>
-                  <span className="text-gray-600 ml-2 text-sm">{plan.period}</span>
+                  <span className="text-gray-500 ml-2 text-sm">{plan.period}</span>
                 </div>
 
                 {/* Volume */}
-                <p className="text-sm font-semibold text-gray-700 mb-2">{plan.volume}</p>
+                <p className="text-sm font-semibold text-gray-600 mb-2">{plan.volume}</p>
 
                 {/* Description */}
                 <p className="text-gray-600 text-sm mb-6 pb-6 border-b border-gray-200">{plan.description}</p>
@@ -109,8 +109,8 @@ export default function AIPricingSection({ onContactClick }: { onContactClick?: 
                   onClick={onContactClick}
                   className={`w-full py-2 px-4 rounded-lg font-semibold mb-8 transition-all duration-300 text-sm ${
                     plan.highlighted
-                      ? 'bg-[#1b489b] text-white hover:bg-[#0f2d5f]'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500 shadow-md'
+                      : 'bg-[#01162E] text-white hover:bg-[#0a2351]'
                   }`}
                 >
                   {plan.cta}
@@ -133,10 +133,14 @@ export default function AIPricingSection({ onContactClick }: { onContactClick?: 
         {/* Overage Notice */}
         <div className="max-w-3xl mx-auto bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
           <p className="text-gray-700 text-sm">
-            <span className="font-semibold">Exceed your monthly limit?</span> We'll notify you — no automatic charges or surprise fees. Upgrade anytime.
+            <span className="font-semibold text-[#01162E]">Exceed your monthly limit?</span> We'll notify you — no automatic charges or surprise fees. Upgrade anytime.
           </p>
         </div>
       </div>
     </section>
   );
 }
+
+
+
+

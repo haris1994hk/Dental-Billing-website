@@ -91,12 +91,12 @@ export default function Pricing() {
       </ScrollAnimatedSection>
 
       {/* Additional Services Pricing */}
-      <section className="w-full py-20 bg-gray-50 border-t border-gray-200">
+      <section className="w-full py-20 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
           <div className="text-center mb-16">
-            
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#01162E] mb-4">Additional Services</h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
               Complement your AI automation with our expert staffing and support services.
             </p>
           </div>
@@ -104,9 +104,9 @@ export default function Pricing() {
           {/* Services Grid */}
           <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
             {additionalServices.map((service, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all">
+              <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all border border-blue-100">
                 {/* Service Title */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.name}</h3>
+                <h3 className="text-2xl font-bold text-[#01162E] mb-2">{service.name}</h3>
                 <p className="text-gray-600 text-sm mb-8 pb-8 border-b border-gray-200">
                   {service.description}
                 </p>
@@ -115,12 +115,12 @@ export default function Pricing() {
                 <div className="space-y-6">
                   {service.tiers.map((tier, tierIndex) => (
                     <div key={tierIndex} className="border-l-4 border-[#1b489b] pl-4">
-                      <p className="text-gray-700 font-semibold text-sm mb-1">{tier.label}</p>
+                      <p className="text-gray-600 font-semibold text-sm mb-1">{tier.label}</p>
                       <div className="flex items-baseline gap-1">
                         <span className="text-3xl font-bold text-[#1b489b]">{tier.price}</span>
-                        <span className="text-gray-600 text-sm">{tier.period}</span>
+                        <span className="text-gray-500 text-sm">{tier.period}</span>
                       </div>
-                      <p className="text-gray-500 text-xs mt-2">{tier.details}</p>
+                      <p className="text-gray-600 text-xs mt-2">{tier.details}</p>
                     </div>
                   ))}
                 </div>
@@ -128,7 +128,7 @@ export default function Pricing() {
                 {/* CTA Button */}
                 <button 
                   onClick={() => setContactModalOpen(true)}
-                  className="w-full mt-8 py-2 px-4 bg-[#1b489b] text-white rounded-lg font-semibold hover:bg-[#0f2d5f] transition-all">
+                  className="w-full mt-8 py-2 px-4 bg-[#01162E] text-white rounded-lg font-semibold hover:bg-[#0a2351] transition-all">
                   Learn More
                 </button>
               </div>
@@ -136,9 +136,9 @@ export default function Pricing() {
           </div>
 
           {/* Additional Info */}
-          <div className="max-w-3xl mx-auto mt-16 bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
+          <div className="max-w-3xl mx-auto mt-16 bg-white border border-blue-200 rounded-lg p-6 text-center">
             <p className="text-gray-700 text-sm">
-              <span className="font-semibold">Want a custom plan?</span> Contact our sales team to create a tailored package that fits your practice's needs.
+              <span className="font-semibold text-[#01162E]">Want a custom plan?</span> Contact our sales team to create a tailored package that fits your practice's needs.
             </p>
           </div>
         </div>
@@ -149,3 +149,7 @@ export default function Pricing() {
     </div>
   );
 }
+
+
+
+

@@ -10,7 +10,7 @@ export default function AppointmentSchedulingSection() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
         </svg>
       ),
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-blue-600 to-cyan-500',
     },
     {
       title: 'Treatment Follow-up Scheduling',
@@ -55,14 +55,26 @@ export default function AppointmentSchedulingSection() {
   ];
 
   return (
-    <section className="w-full  px-4 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full py-20 relative overflow-hidden">
+      <style>{`
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+      `}</style>
+
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-200/20 rounded-full blur-3xl"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block bg-gradient-to-r from-purple-100 to-pink-100 text-gray-500 bg-clip-text text-sm font-bold mb-4 px-4 border border-purple-200 rounded-full">
+        <div className="text-center mb-16 animate-fade-in-up">
+          <span className="inline-block bg-purple-100 text-purple-700 text-sm font-bold mb-4 px-4 py-2 rounded-full">
             PATIENT ENGAGEMENT
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#01162E] mb-6 tracking-tight">
             Appointment Scheduling Support
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -72,24 +84,20 @@ export default function AppointmentSchedulingSection() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${feature.gradient} p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer`}
+              className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${feature.gradient} p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer transform animate-fade-in-up`}
+              style={{ animationDelay: `${0.05 + index * 0.06}s` }}
             >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0 bg-pattern"></div>
-              </div>
-
               {/* Icon Container */}
               <div className="relative z-10 w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-6 group-hover:bg-white/30 transition-all transform group-hover:scale-110">
                 {feature.icon}
               </div>
 
               {/* Content */}
-              <h3 className="relative !text-white z-10 text-lg font-bold leading-tight group-hover:translate-x-1 transition-transform">
+              <h3 className="relative text-white z-10 text-lg font-bold leading-tight group-hover:translate-x-1 transition-transform">
                 {feature.title}
               </h3>
               <p className="relative z-10 text-sm text-white/90 leading-relaxed">
@@ -101,10 +109,11 @@ export default function AppointmentSchedulingSection() {
             </div>
           ))}
         </div>
-
-        {/* Key Statistics */}
-       
       </div>
     </section>
   );
 }
+
+
+
+

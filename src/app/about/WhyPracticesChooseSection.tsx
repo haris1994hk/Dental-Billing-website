@@ -43,14 +43,26 @@ export default function WhyPracticesChooseSection() {
   ];
 
   return (
-    <section className="w-full py-16 lg:py-24 px-4 bg-gradient-to-b from-white via-gray-50 to-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full py-20 relative overflow-hidden">
+      <style>{`
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+      `}</style>
+
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-200/20 rounded-full blur-3xl"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-16 animate-fade-in-up">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#01162E] mb-6">
             Why Practices Choose
             <br />
-            <span className="bg-gradient-to-r from-[#14479b] to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Dental Billing Aid
             </span>
           </h2>
@@ -62,7 +74,7 @@ export default function WhyPracticesChooseSection() {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
           {/* Left - Problems */}
-          <div className="relative">
+          <div className="relative animate-fade-in-up" style={{animationDelay: '0.1s'}}>
             <div className="absolute -top-8 left-0 text-sm font-bold uppercase tracking-wider text-gray-500">
               Problems You Face
             </div>
@@ -70,11 +82,12 @@ export default function WhyPracticesChooseSection() {
               {problems.map((problem, index) => (
                 <div
                   key={index}
-                  className="group relative p-6 rounded-xl bg-gradient-to-r from-red-50 to-pink-50 border-l-4 border-red-500 hover:shadow-lg transition-all"
+                  className="group relative p-6 rounded-xl bg-white border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all transform hover:-translate-y-1"
+                  style={{animationDelay: `${0.05 + index * 0.05}s`}}
                 >
                   <div className="flex items-center gap-4">
                     <span className="text-4xl">{problem.icon}</span>
-                    <h3 className="text-lg font-bold text-gray-800 group-hover:text-red-600 transition-colors">
+                    <h3 className="text-lg font-bold text-[#01162E] group-hover:text-red-600 transition-colors">
                       {problem.title}
                     </h3>
                   </div>
@@ -84,7 +97,7 @@ export default function WhyPracticesChooseSection() {
           </div>
 
           {/* Right - Solutions */}
-          <div className="relative">
+          <div className="relative animate-fade-in-up" style={{animationDelay: '0.15s'}}>
             <div className="absolute -top-8 left-0 text-sm font-bold uppercase tracking-wider text-gray-500">
               Our Solution
             </div>
@@ -92,15 +105,16 @@ export default function WhyPracticesChooseSection() {
               {solutions.map((solution, index) => (
                 <div
                   key={index}
-                  className="group relative p-8 rounded-xl bg-gradient-to-r from-emerald-50 to-green-50 border-l-4 border-emerald-500 hover:shadow-lg transition-all"
+                  className="group relative p-8 rounded-xl bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-100 hover:border-emerald-300 hover:shadow-lg transition-all transform hover:-translate-y-1"
+                  style={{animationDelay: `${0.05 + index * 0.05}s`}}
                 >
                   <div className="flex items-start gap-4">
                     <span className="text-3xl mt-1">{solution.icon}</span>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-700 transition-colors mb-2">
+                      <h3 className="text-lg font-bold text-emerald-700 mb-2">
                         {solution.title}
                       </h3>
-                      <p className="text-gray-700 leading-relaxed">
+                      <p className="text-gray-600 leading-relaxed">
                         {solution.description}
                       </p>
                     </div>
@@ -110,9 +124,10 @@ export default function WhyPracticesChooseSection() {
             </div>
           </div>
         </div>
-
-        
       </div>
     </section>
   );
 }
+
+
+

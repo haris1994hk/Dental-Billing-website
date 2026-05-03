@@ -23,31 +23,31 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="w-full bg-white sticky top-0 z-50">
+    <header className="w-full bg-[#01162E] sticky top-0 z-50 shadow-lg">
       {/* Top Info Bar */}
-      <div className="w-full bg-[#1b489b] text-white py-2 sm:py-2.5">
+      <div className="w-full bg-gradient-to-r from-[#01162E] to-[#0a2351] text-white py-2 sm:py-2.5">
         <div className="max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm">
           <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-6 md:gap-24 lg:gap-46">
            
-            <a href="mailto:haris@dentalbillingaid.com" className="flex items-center gap-1.5 sm:gap-2.5 hover:text-blue-100 transition">
-              <FiMail className="text-white text-sm sm:text-lg font-bold flex-shrink-0" />
-              <span className="hidden sm:inline">haris@dentalbillingaid.com</span>
-              <span className="sm:hidden text-xs">Email</span>
+            <a href="mailto:haris@dentalbillingaid.com" className="flex items-center gap-1.5 sm:gap-2.5 hover:text-blue-300 transition">
+              <FiMail className="text-blue-400 text-sm sm:text-lg font-bold flex-shrink-0" />
+              <span className="hidden sm:inline text-white/90">haris@dentalbillingaid.com</span>
+              <span className="sm:hidden text-xs text-white/90">Email</span>
             </a>
             <span className="flex items-center gap-1.5 sm:gap-2.5 hidden md:flex">
-              <FiMapPin className="text-white text-sm sm:text-lg font-bold flex-shrink-0" />
-              <span className="text-xs sm:text-sm">4498 Main St Suite 4 #1107, Buffalo, NY 14226, United States</span>
+              <FiMapPin className="text-blue-400 text-sm sm:text-lg font-bold flex-shrink-0" />
+              <span className="text-xs sm:text-sm text-white/80">4498 Main St Suite 4 #1107, Buffalo, NY 14226, United States</span>
             </span>
           </div>
           <div className="flex gap-2 sm:gap-3">
-            <a href="https://www.linkedin.com/company/dental-billing-aid/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-100 bg-white rounded-full w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaLinkedinIn className="text-xs sm:text-sm" /></a>
-            <a href="https://www.instagram.com/dentalbillingaid/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-100 bg-white rounded-full w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex items-center justify-center transition font-semibold"><FaInstagram className="text-xs sm:text-sm" /></a>
+            <a href="https://www.linkedin.com/company/dental-billing-aid/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 bg-white/20 rounded-full w-5 h-5 sm:w-6 sm:h-6 text-white flex items-center justify-center transition font-semibold"><FaLinkedinIn className="text-xs sm:text-sm" /></a>
+            <a href="https://www.instagram.com/dentalbillingaid/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 bg-white/20 rounded-full w-5 h-5 sm:w-6 sm:h-6 text-white flex items-center justify-center transition font-semibold"><FaInstagram className="text-xs sm:text-sm" /></a>
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <nav className="w-full bg-white shadow-sm">
+      <nav className="w-full bg-gradient-to-r from-[#01162E] via-[#0a2351] to-[#01162E] shadow-lg">
         <div className="max-w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Logo */}
@@ -57,19 +57,19 @@ export default function Header() {
 
             {/* Desktop Nav Items */}
             <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-              <Link href="/" className="text-black font-semibold hover:text-blue-600 text-sm xl:text-base transition">
+              <Link href="/" className="text-white font-semibold hover:text-blue-300 text-sm xl:text-base transition">
                 Home
               </Link>
-              <Link href="/about" className="text-black font-semibold hover:text-blue-600 text-sm xl:text-base transition">
+              <Link href="/about" className="text-white font-semibold hover:text-blue-300 text-sm xl:text-base transition">
                 About
               </Link>
-              <Link href="/services" className="text-black font-semibold hover:text-blue-600 text-sm xl:text-base transition">
+              <Link href="/services" className="text-white font-semibold hover:text-blue-300 text-sm xl:text-base transition">
                 Services
               </Link>
-              <Link href="/resources" className="text-black font-semibold hover:text-blue-600 text-sm xl:text-base transition">
+              <Link href="/resources" className="text-white font-semibold hover:text-blue-300 text-sm xl:text-base transition">
                 Resources
               </Link>
-              <Link href="/pricing" className="text-black font-semibold hover:text-blue-600 text-sm xl:text-base transition">
+              <Link href="/pricing" className="text-white font-semibold hover:text-blue-300 text-sm xl:text-base transition">
                 Pricing
               </Link>
             </div>
@@ -77,7 +77,7 @@ export default function Header() {
             {/* Mobile/Tablet Menu Button */}
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden flex items-center justify-center p-2 text-blue-600 hover:text-blue-700 transition"
+              className="lg:hidden flex items-center justify-center p-2 text-white hover:text-blue-300 transition"
             >
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
@@ -88,13 +88,13 @@ export default function Header() {
                 href="https://posteasy.dentalbillingaid.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-transparent border-2 border-blue-600 text-blue-600 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:bg-blue-50 transition-colors flex-shrink-0"
+                className="bg-transparent border-2 border-white/30 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:border-blue-400 hover:text-blue-300 transition-colors flex-shrink-0"
               >
                 Sign In
               </a>
               <button
                 onClick={() => setContactModalOpen(true)}
-                className="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg flex-shrink-0"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:shadow-lg hover:from-blue-500 hover:to-purple-500 transition-all shadow-md flex-shrink-0"
               >
                 Contact Us
               </button>
@@ -111,11 +111,11 @@ export default function Header() {
               />
               
               {/* Slide-in Sidebar with Smooth Animation */}
-              <div className={`fixed top-0 left-0 h-screen w-64 bg-gradient-to-b from-[#1b489b] to-[#0f2d5f] shadow-2xl z-50 ${
+              <div className={`fixed top-0 left-0 h-screen w-64 bg-gradient-to-b from-[#01162E] to-[#0a2351] shadow-2xl z-50 ${
                 isOpen ? 'animate-slideInMenu' : '-translate-x-full'
               } lg:hidden overflow-y-auto`}>
                 {/* Close Button Inside Sidebar - Animated */}
-                <div className="sticky top-0 flex justify-between items-center p-4 bg-gradient-to-r from-[#1b489b] to-[#0f2d5f] border-b border-white/20 menu-item-1">
+                <div className="sticky top-0 flex justify-between items-center p-4 bg-gradient-to-r from-[#01162E] to-[#0a2351] border-b border-white/20 menu-item-1">
                   <button 
                     onClick={() => setIsOpen(false)}
                     className="text-white hover:bg-white/20 rounded-lg p-2 transition transform hover:scale-110 active:scale-95"
@@ -170,17 +170,17 @@ export default function Header() {
                         href="https://www.linkedin.com/company/dental-billing-aid/" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition"
+                        className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:scale-110 hover:bg-white/30 transition"
                       >
-                        <FaLinkedinIn className="text-[#1b489b]" />
+                        <FaLinkedinIn className="text-white" />
                       </a>
                       <a 
                         href="https://www.instagram.com/dentalbillingaid/" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition"
+                        className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:scale-110 hover:bg-white/30 transition"
                       >
-                        <FaInstagram className="text-[#1b489b]" />
+                        <FaInstagram className="text-white" />
                       </a>
                     </div>
                   </div>
@@ -190,7 +190,7 @@ export default function Header() {
                     href="https://posteasy.dentalbillingaid.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full bg-blue-600 text-white px-4 py-3 rounded-full text-base font-semibold hover:bg-blue-700 transition-colors shadow-lg text-center mb-3"
+                    className="block w-full bg-white/20 text-white px-4 py-3 rounded-full text-base font-semibold hover:bg-white/30 transition-colors shadow-lg text-center mb-3"
                   >
                     Sign In
                   </a>
@@ -199,7 +199,7 @@ export default function Header() {
                       setContactModalOpen(true);
                       setIsOpen(false);
                     }}
-                    className="w-full bg-white text-[#1b489b] px-4 py-3 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-full text-base font-semibold hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg"
                   >
                     Contact Us
                   </button>
@@ -214,3 +214,6 @@ export default function Header() {
     </header>
   );
 }
+
+
+

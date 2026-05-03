@@ -48,6 +48,22 @@
 .menu-item-3 { animation: menuItemSlideIn 0.4s ease-out 0.3s both; }
 .menu-item-4 { animation: menuItemSlideIn 0.4s ease-out 0.4s both; }
 .menu-item-5 { animation: menuItemSlideIn 0.4s ease-out 0.5s both; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
+}
 .menu-social { animation: menuItemSlideIn 0.4s ease-out 0.7s both; }
 .menu-button { animation: menuItemSlideIn 0.4s ease-out 0.8s both; }
 @import "tailwindcss";

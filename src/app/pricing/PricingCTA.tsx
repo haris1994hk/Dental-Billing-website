@@ -12,7 +12,7 @@ export default function PricingCTA() {
         <h2 className="text-4xl font-bold text-[#1b489b] mb-4">
           Not sure which plan is right for you?
         </h2>
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg text-gray-400 mb-8">
           Our team can help you find the perfect combination of AI automation and human services for your practice.
         </p>
         <button
@@ -27,3 +27,7 @@ export default function PricingCTA() {
     </section>
   );
 }
+
+
+
+

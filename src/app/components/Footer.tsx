@@ -4,7 +4,7 @@ import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 export default function Footer() {
   return (
     <footer className="w-full mt-12">
-      <div className="bg-[#14479b] text-white rounded-t-3xl">
+      <div className="bg-[#01162E] text-white rounded-t-3xl">
         <div className="max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="flex items-start gap-4">
             <Link href="/" className="flex-shrink-0">
@@ -77,3 +77,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+

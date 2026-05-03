@@ -7,7 +7,7 @@ export default function WhoWeServe() {
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left card */}
           <div className="bg-[#e9f3ff] rounded-3xl p-6 sm:p-8 lg:p-10 shadow-md">
-            <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#1B489B] tracking-wide mb-4 sm:mb-6">WHO WE SERVE?</h3>
+            <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#1b489b] tracking-wide mb-4 sm:mb-6">WHO WE SERVE?</h3>
             <ul className="list-disc pl-6 space-y-3 sm:space-y-4 text-[#0f1724] font-semibold text-sm sm:text-base">
               <li>GENERAL DENTAL PRACTICES</li>
               <li>MULTI-LOCATION DENTAL GROUPS</li>
@@ -43,3 +43,7 @@ export default function WhoWeServe() {
     </section>
   );
 }
+
+
+
+

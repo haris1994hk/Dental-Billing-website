@@ -4,16 +4,41 @@ import { ReactNode } from "react";
 
 export default function HowItWorks() {
   return (
-    <section className="relative w-screen left-1/2 right-1/2 -translate-x-1/2 mt-20 bg-[#eef3fb]  pt-16">
-      <div className="max-w-8xl mx-auto px-4 text-center">
-        <h2 className="text-3xl sm:text-4xl font-extrabold !text-black">
+    <section className="relative w-screen left-1/2 right-1/2 -translate-x-1/2 mt-20 bg-[#01162E] pt-16 overflow-hidden">
+      <style>{`
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        .animate-gradient {
+          animation: gradientShift 8s ease infinite;
+          background-size: 200% 200%;
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
+      
+      {/* Animated background blur */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+      </div>
+
+      <div className="max-w-8xl mx-auto px-4 text-center relative z-10">
+        <h2 className="text-3xl sm:text-4xl font-extrabold !text-white">
           How Our <span className="text-[#1b489b]">AI Dental Billing Agent</span> Works!
         </h2>
-        <p className="text-black mt-2 text-sm sm:text-base mx-auto max-w-2xl">
+        <p className="text-white mt-2 text-sm sm:text-base mx-auto max-w-2xl">
           Our flagship AI tool is designed specifically for dental insurance workflows
         </p>
 
-        <div className="mt-12 grid grid-cols-1  lg:grid-cols-3 gap-10 items-center">
+        <div className="mt-12 grid grid-cols-1  lg:grid-cols-3 gap-10 items-center relative z-10">
 
           {/* LEFT */}
           <div className="space-y-10 flex flex-col items-center">
@@ -121,16 +146,20 @@ interface StepProps {
 function Step({ number, title, content }: StepProps) {
   return (
     <div>
-      <div className="inline-flex items-center gap-2 bg-transparent border-2 border-blue-800 px-6 py-1 rounded-full text-xs font-semibold relative">
-        <span className="w-8 h-8 flex items-center justify-center bg-[#1b489b] text-white -ml-10 rounded-full text-lg font-bold">
+      <div className="inline-flex items-center gap-2 bg-[#01162E] border-2 border-[#0055ff] px-6 py-1 rounded-full text-xs font-semibold relative transition-all duration-300 hover:border-[#00a2ff] hover:shadow-lg hover:shadow-blue-500/50">
+        <span className="w-8 h-8 flex items-center justify-center bg-white text-[#01162E] -ml-10 rounded-full text-lg font-bold">
           {number}
         </span>
-        <h2 className="text-[#1b489b] text-[15px]">{title}</h2>
+        <h2 className="text-white text-[15px]">{title}</h2>
       </div>
 
-      <div className="bg-[#1b489b] text-white rounded-xl p-5 mt-3 shadow-md w-56">
+      <div className="bg-[#01162E] text-white rounded-xl p-5 mt-3 shadow-md w-56 border border-[#0055ff]/30 transition-all duration-300 hover:border-[#0055ff] hover:shadow-lg hover:shadow-blue-500/30">
         {typeof content === "string" ? <p className="text-xs text-left">{content}</p> : content}
       </div>
     </div>
   );
 }
+
+
+
+

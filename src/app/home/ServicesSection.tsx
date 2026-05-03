@@ -40,9 +40,9 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h3 className="text-[30px] font-semibold tracking-widest">
-            <span className="!text-black">—</span>
+            <span className="!text-white">—</span>
             <span className="mx-2 text-[#1b489b] ">OUR SERVICES</span>
-            <span className="!text-black">—</span>
+            <span className="!text-white">—</span>
           </h3>
         </div>
 
@@ -64,3 +64,7 @@ export default function ServicesSection() {
     </section>
   );
 }
+
+
+
+

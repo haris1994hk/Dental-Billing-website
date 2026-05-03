@@ -1,5 +1,6 @@
 'use client';
 import HeroSection from './HeroSection';
+import OurServicesSection from '../home/OurServicesSection';
 import ServicesSection from './ServicesSection';
 import ServicesList from './ServicesList';
 import InsuranceVerificationSection from './InsuranceVerificationSection';
@@ -13,6 +14,7 @@ export default function AboutPage() {
   return (
     <div className="w-full">
       <HeroSection />
+      <OurServicesSection />
       <ScrollAnimatedSection animation="fadeInUp">
         <ServicesSection />
       </ScrollAnimatedSection>

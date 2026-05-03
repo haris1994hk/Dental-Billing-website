@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Phone, Mail, MapPin } from 'lucide-react';
 
 interface ContactModalProps {
@@ -29,6 +30,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+
+  if (!isOpen) return null;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -98,12 +101,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     }
   };
 
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="grid md:grid-cols-2 gap-0">
+  return createPortal(
+    <div className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-4 sm:p-6 bg-black/50 backdrop-blur-sm overflow-y-auto">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full mt-20 sm:mt-0 max-h-[calc(100vh-5rem)] sm:max-h-[90vh] overflow-y-auto">
+        <div className="grid md:grid-cols-2 gap-0 min-h-0">
           {/* Left - Contact Info */}
           <div className="bg-gradient-to-br from-[#1b489b] to-[#0f2d5f] text-white p-8 flex flex-col justify-between">
             <div>
@@ -168,110 +169,37 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
           </div>
 
-          {/* Right - Form */}
-          <div className="p-8 relative">
+          {/* Right - Info */}
+          <div className="p-8 relative flex items-start justify-center bg-white">
             <button
               onClick={onClose}
               className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition hidden md:block"
             >
-              <X className="w-6 h-6 text-gray-600" />
+              <X className="w-6 h-6 text-gray-400" />
             </button>
+            <div className="w-full max-w-sm text-left pt-6 md:pt-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600 mb-3">Book a Demo</p>
+              <h3 className="text-3xl font-bold text-[#01162E] mb-3 leading-tight">We'll help you get started</h3>
+              <p className="text-base text-gray-700 mb-6 leading-relaxed">Share your details and our team will contact you to walk through the platform, pricing, and the best setup for your practice.</p>
 
-            <h3 className="text-2xl font-bold text-black mb-2">Send us a Message</h3>
-            <p className="text-sm text-gray-600 mb-6">We'll get back to you as soon as possible.</p>
-
-            {submitted && (
-              <div className="bg-green-50 border-2 border-green-400 text-green-800 px-5 py-4 rounded-lg mb-6">
-                <div className="font-semibold mb-1">✓ Message Sent Successfully!</div>
-                <p className="text-sm">We've received your message and a confirmation has been sent to <span className="font-semibold">{formData.email}</span>. Our team will contact you shortly.</p>
+              <div className="space-y-3">
+                <div className="rounded-xl border border-blue-100 px-4 py-3">
+                  <p className="text-sm font-semibold text-[#01162E] mb-1">Fast Response</p>
+                  <p className="text-sm text-gray-700">We typically reply within 2 business hours.</p>
+                </div>
+                <div className="rounded-xl border border-blue-100 px-4 py-3">
+                  <p className="text-sm font-semibold text-[#01162E] mb-1">Direct Support</p>
+                  <p className="text-sm text-gray-700">Email or call us for a guided demo and follow-up.</p>
+                </div>
               </div>
-            )}
-
-            {error && (
-              <div className="bg-red-50 border-2 border-red-400 text-red-800 px-5 py-4 rounded-lg mb-6">
-                <div className="font-semibold mb-1">⚠ Error</div>
-                <p className="text-sm">{error}</p>
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Name Field */}
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  disabled={loading || submitted}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b489b] text-gray-900 placeholder-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
-                />
-              </div>
-
-              {/* Email Field */}
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@dentalpractice.com"
-                  disabled={loading || submitted}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b489b] text-gray-900 placeholder-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
-                />
-              </div>
-
-              {/* Message Field */}
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your needs or ask a question..."
-                  disabled={loading || submitted}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b489b] text-gray-900 placeholder-gray-500 resize-none disabled:bg-gray-100 disabled:cursor-not-allowed"
-                />
-              </div>
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={loading || submitted}
-                className="w-full bg-[#1b489b] text-white py-3 rounded-lg font-semibold hover:bg-[#0f2d5f] transition mt-6 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                {loading ? (
-                  <>
-                    <span className="inline-block animate-spin">⟳</span> Sending...
-                  </>
-                ) : submitted ? (
-                  <>
-                    ✓ Sent!
-                  </>
-                ) : (
-                  'Send Message'
-                )}
-              </button>
-
-              <p className="text-xs text-gray-600 text-center mt-4">
-                We respect your privacy. Your information is secure with us.
-              </p>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
+
+
+

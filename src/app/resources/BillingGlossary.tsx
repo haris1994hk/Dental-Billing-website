@@ -25,10 +25,10 @@ export default function BillingGlossary() {
     <section className="w-full">
       <div className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 bg-white border-b-4 border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-black mb-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 text-center">
             Billing <span className="text-[#1b489b]">Glossary</span>
           </h2>
-          <p className="text-gray-600 text-center text-lg mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-center text-lg mb-12 max-w-2xl mx-auto">
             Essential dental billing terminology explained
           </p>
 
@@ -41,13 +41,13 @@ export default function BillingGlossary() {
                 <div className="flex items-start gap-3">
                   <BookMarked className="w-6 h-6 text-[#1b489b] flex-shrink-0 mt-1" />
                   <div className="flex-1">
-                    <h3 className="font-semibold text-black mb-1">
+                    <h3 className="font-semibold text-white mb-1">
                       {item.term}
                     </h3>
                     <p className="text-sm text-[#1b489b] font-medium mb-2">
                       {item.fullForm}
                     </p>
-                    <p className="text-gray-700 text-sm">
+                    <p className="text-gray-300 text-sm">
                       {item.definition}
                     </p>
                   </div>
@@ -60,3 +60,7 @@ export default function BillingGlossary() {
     </section>
   );
 }
+
+
+
+

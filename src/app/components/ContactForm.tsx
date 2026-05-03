@@ -118,7 +118,7 @@ export default function ContactForm() {
 
   return (
     <div className="max-w-6xl mx-auto mt-20 px-4">
-      <div className="bg-[#14479b] text-white rounded-3xl p-8 lg:p-12 shadow-lg">
+      <div className="bg-[#01162E] text-white rounded-3xl p-8 lg:p-12 shadow-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <div>
             <h3 className="text-3xl text-start !text-white sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight uppercase">
@@ -150,7 +150,7 @@ export default function ContactForm() {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400" 
+                  className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400" 
                   placeholder="John"
                 />
               </div>
@@ -161,7 +161,7 @@ export default function ContactForm() {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"
+                  className="mt-1 w-full sm:max-w-[240px] rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400"
                   placeholder="Doe"
                 />
               </div>
@@ -174,7 +174,7 @@ export default function ContactForm() {
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className="mt-1 w-full rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"
+                className="mt-1 w-full rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400"
                 placeholder="(123) 456-7890"
               />
             </div>
@@ -187,7 +187,7 @@ export default function ContactForm() {
                   name="date"
                   value={formData.date}
                   onChange={handleChange}
-                  className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-full sm:w-40" 
+                  className="mt-1 rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400 w-full sm:w-40" 
                 />
               </div>
               <div className="flex flex-col items-start w-full">
@@ -197,7 +197,7 @@ export default function ContactForm() {
                   name="time"
                   value={formData.time}
                   onChange={handleChange}
-                  className="mt-1 rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400 w-full sm:w-36" 
+                  className="mt-1 rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400 w-full sm:w-36" 
                 />
               </div>
             </div>
@@ -209,7 +209,7 @@ export default function ContactForm() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 w-full rounded px-3 py-2 bg-white text-black placeholder:text-zinc-400"
+                className="mt-1 w-full rounded px-3 py-2 bg-white text-[#01162E] placeholder:text-zinc-400"
                 placeholder="john@example.com"
               />
             </div>
@@ -220,7 +220,7 @@ export default function ContactForm() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="mt-1 w-full rounded px-3 py-3 bg-white text-black h-28"
+                className="mt-1 w-full rounded px-3 py-3 bg-white text-[#01162E] h-28"
                 placeholder="Tell us about your practice..."
               />
             </div>
@@ -244,3 +244,6 @@ export default function ContactForm() {
     </div>
   );
 }
+
+
+
